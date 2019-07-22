@@ -1,4 +1,7 @@
-Tag.create(name: "Film")
-Tag.create(name: "Actor")
-Tag.create(name: "Disappointment")
-Tag.create(name: "Opinion")
+
+Tag.create!([
+  {name: "Film"},
+  {name: "Actor"},
+  {name: "Disappointment"},
+  {name: "Opinion"}
+])
