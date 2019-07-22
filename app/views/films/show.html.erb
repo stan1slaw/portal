@@ -1,0 +1,28 @@
+<div class="about_film text-center">
+    <h1 class="text-center"><%= @film.name %></h1>
+  <hr>
+  <div class="image_size">
+  <%= image_tag @film.picture.url unless @film.picture.nil? %>
+  </div>
+  <hr>
+    <h2>Actor:</h2>
+
+    <p class="font-italic "><%= @film.actor %></p>
+  <hr>
+    <h2>Producer:</h2>
+
+    <p class="font-italic "><%= @film.producer %></p>
+  <hr>
+    <h2>Description:</h2>
+
+    <p class="font-italic "><%= @film.description %></p>
+  <hr>
+    <h2>Premiere date:</h2>
+    <p class="font-italic " ><strong><%=  (DateTime.now.to_date - @film.time_create.to_date).to_i %></strong> days from premier</p>
+  <hr>
+</div>
+<br>
+<h2>Comments:</h2>
+<%= render @film.comments %>
+<%= render  'comments/form', locals: {commenter:@commenter} %>
+

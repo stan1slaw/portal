@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video-Portal</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= render partial: "films/login", locals: {current_user:current_user} %>
+  <p style="color:red"><%= flash[:error] %></p>
+  <p style="color:green"><%= flash[:success] %></p>
+    <%= yield %>
+  <script>
+      $(document).on('turbolinks:load', function () {
+          $('#post_tag_ids').chosen({
+              allow_single_deselect: true,
+              width: '100%'
+          })
+      });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+version: '3'
+services:
+
+  #elasticsearch:
+   #container_name: elasticsearch
+   # environment:
+    #  - node.name=elasticsearch
+     # - discovery.seed_hosts=elasticsearch
+      #- cluster.initial_master_nodes=elasticsearch
+      #- cluster.name=docker-cluster
+      #- bootstrap.memory_lock=true
+      #- "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    #ulimits:
+     # memlock:
+      #  soft: -1
+       # hard: -1
+    #volumes:
+     # - esdata1:/usr/share/elasticsearch/data
+    #ports:
+     # - 9200:9200
+  #kibana:
+   # image: docker.elastic.co/kibana/kibana:7.2.0
+   # container_name: kibana
+   # environment:
+   #   ELASTICSEARCH_URL: "http://elasticsearch:9200"
+   # ports:
+    #  - 5601:5601
+  #  depends_on:
+   #   - elasticsearch
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+#volumes:
+  #esdata1:
+  #  driver: local

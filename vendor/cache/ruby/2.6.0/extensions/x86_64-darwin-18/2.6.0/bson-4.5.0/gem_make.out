@@ -1,0 +1,89 @@
+current directory: /Users/stanislau/Desktop/testing/vendor/cache/ruby/2.6.0/gems/bson-4.5.0/ext/bson
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/bin/ruby -I /Users/stanislau/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20190715-59839-pscanl.rb extconf.rb
+creating Makefile
+
+current directory: /Users/stanislau/Desktop/testing/vendor/cache/ruby/2.6.0/gems/bson-4.5.0/ext/bson
+make "DESTDIR=" clean
+
+current directory: /Users/stanislau/Desktop/testing/vendor/cache/ruby/2.6.0/gems/bson-4.5.0/ext/bson
+make "DESTDIR="
+compiling bson_native.c
+bson_native.c:362:29: warning: implicit conversion loses integer precision: 'unsigned long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  new_length = new_position - position;
+             ~ ~~~~~~~~~~~~~^~~~~~~~~~
+bson_native.c:363:24: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  pvt_replace_int32(b, position, new_length);
+  ~~~~~~~~~~~~~~~~~    ^~~~~~~~
+bson_native.c:509:29: warning: implicit conversion loses integer precision: 'unsigned long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  new_length = new_position - position;
+             ~ ~~~~~~~~~~~~~^~~~~~~~~~
+bson_native.c:510:24: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  pvt_replace_int32(b, position, new_length);
+  ~~~~~~~~~~~~~~~~~    ^~~~~~~~
+bson_native.c:555:27: warning: implicit conversion loses integer precision: 'long' to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  const uint32_t length = FIX2LONG(i);
+                 ~~~~~~   ^~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:393:21: note: expanded from macro 'FIX2LONG'
+#define FIX2LONG(x) RB_FIX2LONG(x)
+                    ^~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:377:25: note: expanded from macro 'RB_FIX2LONG'
+#define RB_FIX2LONG(x) ((long)RSHIFT((SIGNED_VALUE)(x),1))
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson_native.c:852:29: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  pvt_put_cstring(b, c_str, length);
+  ~~~~~~~~~~~~~~~           ^~~~~~
+bson_native.c:865:14: warning: implicit conversion loses integer precision: 'unsigned long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+    length = strlen(sym);
+           ~ ^~~~~~~~~~~
+bson_native.c:870:14: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+    length = RSTRING_LEN(string);
+           ~ ^~~~~~~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:1000:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:996:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bson_native.c:870:14: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+    length = RSTRING_LEN(string);
+           ~ ^~~~~~~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:1001:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+bson_native.c:875:14: warning: implicit conversion loses integer precision: 'unsigned long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+    length = strlen(str);
+           ~ ^~~~~~~~~~~
+bson_native.c:1031:46: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  const int32_t length = RSTRING_LEN(string) + 1;
+                ~~~~~~   ~~~~~~~~~~~~~~~~~~~~^~~
+bson_native.c:1042:38: warning: implicit conversion loses integer precision: 'unsigned long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  const int32_t length = strlen(sym) + 1;
+                ~~~~~~   ~~~~~~~~~~~~^~~
+bson_native.c:1065:24: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  pvt_replace_int32(b, NUM2LONG(index), NUM2LONG(i));
+  ~~~~~~~~~~~~~~~~~    ^~~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:678:21: note: expanded from macro 'NUM2LONG'
+#define NUM2LONG(x) RB_NUM2LONG(x)
+                    ^~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:677:24: note: expanded from macro 'RB_NUM2LONG'
+#define RB_NUM2LONG(x) rb_num2long_inline(x)
+                       ^~~~~~~~~~~~~~~~~~~~~
+bson_native.c:1065:41: warning: implicit conversion loses integer precision: 'long' to 'int32_t' (aka 'int') [-Wshorten-64-to-32]
+  pvt_replace_int32(b, NUM2LONG(index), NUM2LONG(i));
+  ~~~~~~~~~~~~~~~~~                     ^~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:678:21: note: expanded from macro 'NUM2LONG'
+#define NUM2LONG(x) RB_NUM2LONG(x)
+                    ^~~~~~~~~~~~~~
+/Users/stanislau/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/ruby.h:677:24: note: expanded from macro 'RB_NUM2LONG'
+#define RB_NUM2LONG(x) rb_num2long_inline(x)
+                       ^~~~~~~~~~~~~~~~~~~~~
+In file included from bson_native.c:21:
+./native-endian.h:196:15: warning: unused function '__bson_double_swap_slow' [-Wunused-function]
+static double __bson_double_swap_slow(double v)
+              ^
+15 warnings generated.
+linking shared-object bson_native.bundle
+
+current directory: /Users/stanislau/Desktop/testing/vendor/cache/ruby/2.6.0/gems/bson-4.5.0/ext/bson
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bson_native.bundle ./.gem.20190715-59839-pai84w

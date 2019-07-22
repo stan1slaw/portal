@@ -1,0 +1,83 @@
+/*
+*= require_tree .
+*= require chosen
+*= require_self
+   */
+@import 'bootstrap';
+@import "font-awesome";
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+.thumb-box {
+  height: 520px;
+}
+.like:hover {
+  text-decoration: none;
+}
+.main_photo_information button{
+  margin-top: 19px;
+
+}
+.links  {
+  margin-top: 20px;
+}
+.main_photo_url {
+  -webkit-border-radius: 70%;
+  -moz-border-radius: 70%;
+  border-radius: 70%;
+  width: 250px;
+  height: 250px;
+}
+.text-comments {
+  margin-left: 10px;
+}
+.film_main_url {
+
+  font-size: 50px;
+  margin-top: 10px;
+}
+.film_main_p {
+  font-size: 20px;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+.btn-margin-danger {
+  margin-bottom: 5px;
+}
+.text-comments {
+  margin-top: 10px;
+}
+.image_size img{
+  width: 80vw;
+  height:auto;
+}
+.post_creater_id, .post_creater {
+  display:none
+}
+.posts_photo img {
+    width: 300px;
+    height: 300px;
+  margin-right: 5px;
+  }
+.post_one {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 10px;
+  height:460px;
+  img {
+    height:250px;
+  }
+  .card-body {
+    height: 10px;
+  }
+}
+.btn:hover {
+  cursor: pointer;
+}
+.text_on_post {
+  margin-top: 10px;
+
+}

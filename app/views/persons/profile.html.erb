@@ -1,0 +1,21 @@
+<h1 class="text-center">Profile</h1>
+<div class="information_profile text-center">
+
+<% if current_user.try(:admin?) %>
+    <%= render partial: "films/information", locals: {current_user:current_user} %>
+    <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
+<% elsif user_signed_in? %>
+    <% if current_user.privat %>
+      <p>Ваш профиль виден только Вам</p>
+    <% else %>
+      <p>Ваш профиль видно всем в интернете</p>
+    <% end %>
+    <%= render partial: "films/information", locals: {current_user:current_user} %>
+    <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
+
+    <% else %>
+    <span>Гость <%= link_to 'Sign Up', new_user_registration_path %></span>
+
+<% end %>
+
+  </div>

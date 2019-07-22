@@ -1,0 +1,11 @@
+<h1 class="text-center">Add film</h1>
+<%= form_for @film do |f| %>
+  <%= render partial: "form", locals: {f:f} %>
+  <label class="btn btn-primary">
+    Add preview
+    <span style="display:none;">
+    <%= f.file_field :picture, required:true %>
+    </span>
+  </label>
+  <p><%= f.submit "Add film", class:"btn btn-success" %></p>
+<% end %>

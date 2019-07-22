@@ -1,0 +1,21 @@
+
+<p>Username: <%= current_user.username %></p>
+<p>Status:
+  <% if current_user.try(:admin?) %>
+    <span> Admin</span>
+  <% else %>
+    <span> User</span>
+    <% end %>
+    </p>
+
+<p ><% if current_user.avatar.url.nil? %>
+    <%= image_tag current_user.avatar = "https://cdn.iconscout.com/icon/premium/png-256-thumb/human-user-profile-man-face-avatar-51412.png", class:"main_photo_url"  %>
+  <% else %>
+    <%= image_tag current_user.avatar.url, class:"main_photo_url"  %>
+  <% end %></p>
+<p>About: <%= current_user.about %></p>
+<p>Email: <%= current_user.email %></p>
+<p>Firstname: <%= current_user.first_name %></p>
+<p>Lastname: <%= current_user.last_name %></p>
+<p>Birthday: <%= current_user.birthday %></p>
+

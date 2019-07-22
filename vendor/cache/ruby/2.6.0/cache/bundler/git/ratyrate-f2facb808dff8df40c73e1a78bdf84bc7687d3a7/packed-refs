@@ -1,0 +1,15 @@
+# pack-refs with: peeled fully-peeled sorted 
+0e284bb05d7111408c029f973d8adc3035d86dcd refs/heads/dev-ygetachew
+718e4f9e340e2c7fbf76e190f3bb298ce291b711 refs/heads/master
+0a7ebd05a5c240dcc21e7533b64aeedc612c5a83 refs/tags/v1.0.4.alpha
+^2ba6c8fd8d47a795e3d23ec187341976dbac30d0
+415979e03a0e551ee0927aa0e1cb33680493800a refs/tags/v1.0.5.alpha
+^2d9da232d90ddebd6e231b986ab6c15eeca7d47a
+2b4051db6771c69dd9717ff4973d79cb2e246fee refs/tags/v1.0.6.alpha
+^c7a690eff90be3cd26071dead9ad08a44c737e95
+2817abb0ea884d0cf42c495eead09eeca3f8117c refs/tags/v1.0.7
+^ea9cd109e71f1edc2b48d85ed7c6af0bbeb7edf4
+6da600ba4ea19984448475289ea0549e52cc723a refs/tags/v1.0.8
+^2a58f0a8e74eb02bc4cbecacd72339ed61d4d7e5
+0cd94b6f03264785007b326f04f109a20f0f23dd refs/tags/v1.0.9
+^4c7049e86f1718501fe4da22f1292176d1ed3fab

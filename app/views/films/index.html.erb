@@ -1,0 +1,51 @@
+<h1 class="text-center">All Films</h1>
+<% if current_user.try(:admin?) %>
+ <p class="text-center">  <%= link_to 'Add film', new_film_path, class:"btn btn-success" %> </p>
+  <br>
+  <% end %>
+<% if @films.empty?  %>
+  <p class="text-center">0 films in portal</p>
+<% else %>
+<div class="row">
+    <% @films.each do |f|  %>
+    <div class=" col-md-4 text-center">
+      <div class="img-thumbnail thumb-box">
+        <h3 class="text-center" style="display:inline-block"><%= link_to f.name, film_path(f)%></h3>
+        <% if f.cached_votes_score > 0 %>
+        <p style="display:inline-block;color:green;size: 14px;">(<%= f.cached_votes_score %>)</p>
+          <% else %>
+          <p style="display:inline-block;color:red;size: 14px;">(<%= f.cached_votes_score %>)</p>
+          <% end %>
+        <% if f.picture.url.nil? %>
+          <%= image_tag f.picture = "https://84.gostreamcdn.net/uploads/images/gallery/2019oscar.jpg"  %>
+        <% else %>
+          <%= image_tag  f.picture.url, style: 'height:350px;width:90%'  %> <br>
+        <% end %>
+        <div class="caption text-center main_photo_information">
+    <% if current_user && current_user.try(:admin?) %>
+
+          <%= link_to "Delete", f, method: :delete, data: {confirm: "Really?"}, class: "btn btn-danger links" %>
+          <%= link_to "Update", edit_film_url(f.id), class: "btn btn-warning links" %>
+
+      <% else %>
+      <% end %>
+
+        <%= link_to like_film_path(f), class:"like", method: :put do %>
+          <button type="button" class="btn btn-info" >
+            <i class="fa fa-thumbs-up"></i>
+            <span class="badge"><%= f.get_upvotes.size %></span>
+          </button>
+            <% end %>
+
+          <%= link_to unlike_film_path(f), class:"like", method: :put do %>
+            <button type="button" class="btn btn-info" >
+              <i class="fa fa-thumbs-down"></i>
+              <span class="badge"><%= f.get_downvotes.size %></span>
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+   <% end %>
+<% end %>
+</div>
