@@ -1,17 +1,17 @@
-<h2>Sign up</h2>
+<h2><%= t('login.signupbtn') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group">
-    <%= f.label :email %><br />
+    <%= f.label :email, t('information.email') %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
   <div class="field form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> <%= t('login.character') %> )</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" , class:"form-control"%>
   </div>
@@ -22,21 +22,21 @@
   </div>
 
     <label class="btn btn-info">
-      Add photo
+      <%= t('profile.photo') %>
       <span style="display:none;">
     <%= f.file_field :avatar %>
     </span>
     </label>
   <div class="field form-group">
-    <%= f.label :username %><br />
+    <%= f.label :username,t('information.username') %><br />
     <%= f.text_field :username, class:"form-control",maxlength:"30"%>
   </div>
   <div class="field form-group">
-    <%= f.label :private %><i>(Set private or public profile)</i><br />
+    <%= f.label :private, t('profile.privat') %> <i>( <%= t('profile.set') %>)</i><br />
     <%= f.check_box :privat %>
   </div>
   <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-success" %>
+    <%= f.submit t('navbar.signup'), class:"btn btn-success" %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>

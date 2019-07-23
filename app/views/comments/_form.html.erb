@@ -11,7 +11,7 @@
     <%= form.text_area :body, class:"form-control form_comments", placeholder:"comment", required: true, minlength:"3", maxlength:"400"%>
     </div>
     <p>
-      <button type="submit" class="btn btn-success">Add comment</button>
+      <button type="submit" class="btn btn-success"><%= t('comments.add') %></button>
     </p>
 
   <% end %>

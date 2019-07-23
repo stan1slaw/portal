@@ -1,33 +1,89 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  home:
+    index:
+      welcome: "A video portal is a service that has all the information about films, the date of the premier, the directors, the actors, you can create accounts and watch movies that you like."
+  global:
+    menu:
+      start: "Lets' go"
+  comments:
+    comments: "Comments"
+    commenter: "User"
+    comment: "Comment"
+    delete: "Delete"
+    update: "Update"
+    add: "Add comment"
+    zero: "Zero comments"
+  film:
+    all: "All films"
+    name: "Name"
+    actors: "Actors"
+    producers: "Producers"
+    description: "Description"
+    date: "Premier date"
+    datefrom: "days from premier"
+    add: "Add film"
+    edit: "Edit film"
+    addpreview: "Add preview"
+    table: "All films"
+    zero: "0 films in portal"
+    filmerror: "Film with ID"
+    filmfound: "not found"
+  information:
+    username: "Username"
+    status: "Status"
+    admin: "Admin"
+    user: "User"
+    about: "About"
+    email: "Email"
+    firstname: "Firstname"
+    lastname: "Lastname"
+    birthday: "Birthday"
+  navbar:
+    welcome: "Hello"
+    films: "Films"
+    posts: "Posts"
+    profile: "Profile"
+    logout: "Logout"
+    signin: "Sign In"
+    signup: "Sign Up"
+    search: "Search"
+    adminerror: "You are not admin"
+  posts:
+    blogposts: "Blog posts"
+    new: "New post"
+    choose: "Choose tags:"
+    none: "None"
+    actor: "Actor"
+    film: "Film"
+    opinion: "Opinion"
+    disappointment: "Disappointment"
+    tags: "Tags"
+    read: "Read post"
+    delete: "Delete post"
+    created: "Created ad"
+    newpost: "New blog post"
+    create: "Create post"
+    photo: "Add files"
+  profile:
+    name: "Profile"
+    private: "Profile is private"
+    localize: "Localize"
+    onlyforyou: "This profile is opened for you"
+    forall: "This profile is public"
+    update: "Update/Edit information"
+    guest: "Guest"
+    signup: "Sign Up"
+    edit: "Edit"
+    leave: "leave blank if you don't want to change it"
+    photo: "Add photo"
+    set: "Set private or public profile"
+    current: "We need your current password to confirm your changes"
+    updateform: "Update"
+    cancel: "Delete account"
+    privat: "Private"
+  login:
+    loginbtn: "Login"
+    signupbtn: "Sign Up"
+    rcvpswrd: "Forget your password?"
+    signup: "Sign Up"
+    character: "characters minimum"

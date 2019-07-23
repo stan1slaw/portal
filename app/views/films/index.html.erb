@@ -1,10 +1,10 @@
-<h1 class="text-center">All Films</h1>
+<h1 class="text-center"><%= t('film.all') %></h1>
 <% if current_user.try(:admin?) %>
- <p class="text-center">  <%= link_to 'Add film', new_film_path, class:"btn btn-success" %> </p>
+ <p class="text-center">  <%= link_to t('film.add'), new_film_path, class:"btn btn-success" %> </p>
   <br>
   <% end %>
 <% if @films.empty?  %>
-  <p class="text-center">0 films in portal</p>
+  <p class="text-center"><%= t('film.zero') %></p>
 <% else %>
 <div class="row">
     <% @films.each do |f|  %>
@@ -24,8 +24,8 @@
         <div class="caption text-center main_photo_information">
     <% if current_user && current_user.try(:admin?) %>
 
-          <%= link_to "Delete", f, method: :delete, data: {confirm: "Really?"}, class: "btn btn-danger links" %>
-          <%= link_to "Update", edit_film_url(f.id), class: "btn btn-warning links" %>
+          <%= link_to t('comments.delete'), f, method: :delete, data: {confirm: "Really?"}, class: "btn btn-danger links" %>
+          <%= link_to t('comments.update'), edit_film_url(f.id), class: "btn btn-warning links" %>
 
       <% else %>
       <% end %>

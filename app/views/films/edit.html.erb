@@ -1,12 +1,12 @@
 
-<h1>Edit film</h1>
+<h1><%= t('film.edit') %></h1>
 <%= form_for @film do |f| %>
   <%= render partial: "form", locals: {f:f} %>
   <label class="btn btn-primary">
-    Add preview
+    <%= t('film.addpreview') %>
     <span style="display:none;">
     <%= f.file_field :picture %>
     </span>
   </label>
-  <p><%= f.submit "Edit Film",class:"btn btn-success"  %></p>
+  <p><%= f.submit t('film.edit') ,class:"btn btn-success"  %></p>
 <% end %>
