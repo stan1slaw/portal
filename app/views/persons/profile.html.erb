@@ -1,20 +1,22 @@
-<h1 class="text-center">Profile</h1>
+<h1 class="text-center"><%= t('profile.name') %></h1>
 <div class="information_profile text-center">
-
+  <p><%= t('profile.localize') %>:</p>
+  <%= link_to 'English', root_path(locale: :en), class: "btn btn-warning" %>
+  <%= link_to 'Русский', root_path(locale: :ru), class: "btn btn-warning" %>
 <% if current_user.try(:admin?) %>
     <%= render partial: "films/information", locals: {current_user:current_user} %>
-    <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
+    <p> <%= link_to t('profile.update'), edit_path, class:"btn btn-info" %></p>
 <% elsif user_signed_in? %>
     <% if current_user.privat %>
-      <p>Ваш профиль виден только Вам</p>
+      <p><%= t('profile.onlyforyou') %></p>
     <% else %>
-      <p>Ваш профиль видно всем в интернете</p>
+      <p><%= t('profile.forall') %></p>
     <% end %>
     <%= render partial: "films/information", locals: {current_user:current_user} %>
-    <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
+    <p> <%= link_to t('profile.update'), edit_path, class:"btn btn-info" %></p>
 
     <% else %>
-    <span>Гость <%= link_to 'Sign Up', new_user_registration_path %></span>
+    <span><%= t('profile.guest') %> <%= link_to t('profile.signup'), new_user_registration_path %></span>
 
 <% end %>
 

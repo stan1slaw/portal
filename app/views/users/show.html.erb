@@ -1,7 +1,7 @@
-<h1 class="text-center">Profile</h1>
+<h1 class="text-center"><%= t('profile.name') %></h1>
 <div class="information_profile text-center">
 <% if @user.privat == true %>
-<p>Профиль скрыт</p>
+<p><%= t('profile.private') %></p>
 <% else %>
     <%= render partial: "films/information", locals: {current_user:@user} %>
 <% end %>

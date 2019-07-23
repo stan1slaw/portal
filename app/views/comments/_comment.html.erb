@@ -1,16 +1,16 @@
 <div class="text-comments">
 
   <p>
-    <strong>Commenter:</strong>
+    <strong><%= t('comments.commenter') %></strong>
     <%= link_to comment.commenter, user_path(comment.user_id) %>
   </p>
   <p>
-    <strong>Comment:</strong>
+    <strong><%= t('comments.comment') %></strong>
     <%= comment.body %>
   </p>
   <% if current_user %>
     <% if  current_user.try(:admin?) || (current_user.username == comment.commenter) %>
-      <%= link_to "Удалить", [comment.film, comment], method: :delete,class: "btn btn-danger btn-margin-danger" %>
+      <%= link_to t('comments.delete'), [comment.film, comment], method: :delete,class: "btn btn-danger btn-margin-danger" %>
     <% else %>
     <% end %>
   <%end %>

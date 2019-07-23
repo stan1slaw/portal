@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :posts
   root 'posts#index'
   get 'tags/:tag', to: 'posts#index', as: :tag
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    # your routes here...
+  end
 end

@@ -1,12 +1,12 @@
-<h1 class="text-center">Blog Posts   <% if current_user && current_user.try(:admin?) %>
-<%= link_to "New Post", new_post_path, class: "btn btn-dark" %>
+<h1 class="text-center"><%= t('posts.blogposts') %><% if current_user && current_user.try(:admin?) %>
+<%= link_to t('posts.new'), new_post_path, class: "btn btn-dark" %>
   <% end %></h1>
-<h4 class="text-center">Choose tags:
-                          <%= link_to :None, posts_path,style:"color:red" %>,
-                    <%= link_to :Actor, tag_path(:Actor) %>,
-                      <%= link_to :Film, tag_path(:Film) %>,
-                <%= link_to :Opinion, tag_path(:Opinion) %>,
-  <%= link_to :Disappointment, tag_path(:Disappointment) %>
+<h4 class="text-center"><%= t('posts.choose') %>:
+                          <%= link_to t('posts.none'), posts_path,style:"color:red" %>,
+                    <%= link_to t('posts.actor'), tag_path(:Actor) %>,
+                      <%= link_to t('posts.film'), tag_path(:Film) %>,
+                <%= link_to t('posts.opinion'), tag_path(:Opinion) %>,
+  <%= link_to t('posts.disappointment'), tag_path(:Disappointment) %>
 </h4>
 
 <div class="post_one">
@@ -14,13 +14,13 @@
     <div class="card" style="width:400px">
         <%= image_tag post.avatars[0].url ,class:"card-img-top"%>
       <div class="card-body">
-        <h4 class="card-title"><%= post.title %></h4>
+        <h4 class="card-title"><%= truncate(post.title, length: 30) %></h4>
         <p class="card-text"><%= truncate(post.content, length: 45) %></p>
-        <p><small>Tags: <%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
-        <small><%= post.created_at.strftime("Created at %m/%d/%Y ") %></small>
-        <%= link_to "Read Post", post_path(post), class: "btn btn-info" %>
+        <p><small><%=t('posts.tags') %>: <%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
+        <small><%= t('posts.created')  %> <%= post.created_at.strftime(" %m/%d/%Y ") %></small>
+        <%= link_to t('posts.read'), post_path(post), class: "btn btn-info" %>
         <% if current_user && current_user.try(:admin?) %>
-          <%= link_to "Delete Post",post, method: :delete, class: "btn btn-danger" %>
+          <%= link_to t('posts.delete'),post, method: :delete, class: "btn btn-danger" %>
         <% end %>
       </div>
     </div>

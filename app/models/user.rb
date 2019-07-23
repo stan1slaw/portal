@@ -12,4 +12,5 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
+
 end

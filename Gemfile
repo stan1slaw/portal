@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 gem 'acts_as_votable', '~> 0.12.0'
@@ -32,7 +32,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
+gem 'rails-i18n', '~> 5.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -41,7 +41,7 @@ gem "fog-aws"
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick'
 gem 'devise'
-source 'https://rails-assets.org' do
+source 'http://insecure.rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
   # add the line below
   gem 'rails-assets-chosen'
@@ -80,5 +80,5 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows does not include zoneinfo files, so  the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

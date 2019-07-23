@@ -1,10 +1,10 @@
 
-<p>Username: <%= current_user.username %></p>
-<p>Status:
+<p><%= t('information.username') %>: <%= current_user.username %></p>
+<p><%= t('information.status') %>:
   <% if current_user.try(:admin?) %>
-    <span> Admin</span>
+    <span> <%= t('information.admin') %></span>
   <% else %>
-    <span> User</span>
+    <span><%= t('information.user') %></span>
     <% end %>
     </p>
 
@@ -13,9 +13,9 @@
   <% else %>
     <%= image_tag current_user.avatar.url, class:"main_photo_url"  %>
   <% end %></p>
-<p>About: <%= current_user.about %></p>
-<p>Email: <%= current_user.email %></p>
-<p>Firstname: <%= current_user.first_name %></p>
-<p>Lastname: <%= current_user.last_name %></p>
-<p>Birthday: <%= current_user.birthday %></p>
+<p><%= t('information.about') %>: <%= current_user.about %></p>
+<p><%= t('information.email') %>: <%= current_user.email %></p>
+<p><%= t('information.firstname') %>: <%= current_user.first_name %></p>
+<p><%= t('information.lastname') %>: <%= current_user.last_name %></p>
+<p><%= t('information.birthday') %>: <%= current_user.birthday %></p>
 

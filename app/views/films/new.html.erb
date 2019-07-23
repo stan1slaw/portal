@@ -1,11 +1,11 @@
-<h1 class="text-center">Add film</h1>
+<h1 class="text-center"><%= t('film.add') %></h1>
 <%= form_for @film do |f| %>
   <%= render partial: "form", locals: {f:f} %>
   <label class="btn btn-primary">
-    Add preview
+    <%= t('film.addpreview') %>
     <span style="display:none;">
     <%= f.file_field :picture, required:true %>
     </span>
   </label>
-  <p><%= f.submit "Add film", class:"btn btn-success" %></p>
+  <p><%= f.submit t('film.add'), class:"btn btn-success" %></p>
 <% end %>
