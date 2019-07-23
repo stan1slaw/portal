@@ -1,8 +1,8 @@
 <h1 class="text-center"><%= t('profile.name') %></h1>
 <div class="information_profile text-center">
   <p><%= t('profile.localize') %>:</p>
-  <%= link_to 'English', root_path(locale: :en), class: "btn btn-warning" %>
-  <%= link_to 'Русский', root_path(locale: :ru), class: "btn btn-warning" %>
+  <%= link_to 'English', user_root_path(locale: :en), class: "btn btn-warning" %>
+  <%= link_to 'Русский', user_root_path(locale: :ru), class: "btn btn-warning" %>
 <% if current_user.try(:admin?) %>
     <%= render partial: "films/information", locals: {current_user:current_user} %>
     <p> <%= link_to t('profile.update'), edit_path, class:"btn btn-info" %></p>

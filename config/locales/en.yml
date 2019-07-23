@@ -39,7 +39,7 @@ en:
     lastname: "Lastname"
     birthday: "Birthday"
   navbar:
-    welcome: "Hello"
+    welcome: "Hello,"
     films: "Films"
     posts: "Posts"
     profile: "Profile"
