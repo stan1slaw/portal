@@ -41,6 +41,10 @@ gem "fog-aws"
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 source 'http://insecure.rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
   # add the line below
