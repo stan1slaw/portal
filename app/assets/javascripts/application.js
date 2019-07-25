@@ -17,3 +17,11 @@
 //= require turbolinks
 //= require chosen
 //= require_tree .
+
+
+$(document).on('turbolinks:load', function () {
+    $('#post_tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+    })
+});

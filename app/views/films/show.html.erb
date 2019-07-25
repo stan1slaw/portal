@@ -18,7 +18,7 @@
     <p class="font-italic "><%= @film.description %></p>
   <hr>
     <h2><%= t('film.date') %>:</h2>
-    <p class="font-italic " ><strong><%=  (DateTime.now.to_date - @film.time_create.to_date).to_i %></strong> <%= t('film.datefrom') %></p>
+    <p class="font-italic " ><strong><%= dateminus(@film.time_create.to_date)%></strong> <%= t('film.datefrom') %></p>
   <hr>
 </div>
 <br>

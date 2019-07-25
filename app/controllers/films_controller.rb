@@ -8,9 +8,9 @@ class FilmsController < ApplicationController
   end
   # /films/1 GET
   def show
-    unless @film
-      render "films/notFound"
+    if @film
     else
+      render "films/notFound"
     end
   end
   # /films/new GET
@@ -25,7 +25,7 @@ class FilmsController < ApplicationController
   def create
     @film = Film.create(film_params)
     if @film.errors.empty?
-      redirect_to film_path(@film)
+      redirect_to film_path(@film), :notice => "film was created!"
     else
       render 'new'
     end
@@ -45,17 +45,17 @@ class FilmsController < ApplicationController
   # /films/1 DELETE
   def destroy
     @film.destroy
-    redirect_to action: 'index'
+    redirect_to action: 'index', :notice => "Film was deleted!"
   end
 
   def upvote
   @film.upvote_from current_user
-    redirect_to films_path
+    redirect_to films_path, :notice => "You made choose!"
   end
 
   def downvote
     @film.downvote_from current_user
-    redirect_to films_path
+    redirect_to films_path, :notice => "You made choose!"
   end
 
 
@@ -63,10 +63,6 @@ class FilmsController < ApplicationController
 
   def film_params
     params.require(:film).permit(:name, :actor, :producer, :description, :time_create, :picture)
-  end
-
-  def film_id
-    params.require(:id)
   end
 
   def find_film
