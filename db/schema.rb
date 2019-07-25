@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_091851) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["film_id"], name: "index_comments_on_film_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "films", force: :cascade do |t|
@@ -97,8 +98,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_091851) do
     t.text "about"
     t.string "avatar"
     t.boolean "privat", default: false
-    t.boolean "email_confirmed", default: false
-    t.string "confirm_token"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
