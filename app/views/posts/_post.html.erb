@@ -1,9 +1,10 @@
-<div class="card" style="width:400px">
+
+    <div class="card" style="width:400px">
         <%= image_tag post.avatars[0].url ,class:"card-img-top"%>
       <div class="card-body">
         <h4 class="card-title"><%= truncate(post.title, length: 30) %></h4>
         <p class="card-text"><%= truncate(post.content, length: 45) %></p>
-        <p><small><%=t('posts.tags') %>: <%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
+        <p><small><%=t('posts.tags') %>: <%= raw tagging(post.tags) %></small></p>
         <small><%= t('posts.created')  %> <%= post.created_at.strftime(" %m/%d/%Y ") %></small>
         <%= link_to t('posts.read'), post_path(post), class: "btn btn-info" %>
         <% if current_user && current_user.try(:admin?) %>

@@ -16,11 +16,8 @@
           <% else %>
           <p style="display:inline-block;color:red;size: 14px;">(<%= f.cached_votes_score %>)</p>
           <% end %>
-        <% if f.picture.url.nil? %>
-          <%= image_tag f.picture = "https://84.gostreamcdn.net/uploads/images/gallery/2019oscar.jpg"  %>
-        <% else %>
-          <%= image_tag  f.picture.url, style: 'height:350px;width:90%'  %> <br>
-        <% end %>
+          <%= image_tag picturevalid(f.picture.url), style: 'height:350px;width:90%'%>
+        
         <div class="caption text-center main_photo_information">
     <% if current_user && current_user.try(:admin?) %>
 

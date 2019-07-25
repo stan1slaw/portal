@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  before_action :finder
+
   def index
 
   end
@@ -6,22 +9,24 @@ class CommentsController < ApplicationController
 
   end
   def create
-    @film = Film.find(params[:film_id])
-    @commenter_id = current_user.id
-    @commenter = current_user.id
     @comment = @film.comments.create(comment_params)
-    redirect_to film_path(@film)
+    redirect_to film_path(@film), :notice => 'Comment created!'
+  
   end
 
   def destroy
-    @film = Film.find(params[:film_id])
+   
     @comment = @film.comments.find(params[:id])
     @comment.destroy
-    redirect_to film_path(@film)
+    redirect_to film_path(@film), :notice => 'Comment deleted!'
+   
   end
 
 
   private
+  def finder 
+    @film = Film.find(params[:film_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:commenter, :body, :film_id, :user_id)
