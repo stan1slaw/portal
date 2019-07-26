@@ -20,7 +20,7 @@
 .links  {
   margin-top: 20px;
 }
-.image-oval, .main_photo_url {
+.image-oval, .main_photo_url, .image-oval-reply {
   -webkit-border-radius: 70%;
   -moz-border-radius: 70%;
   border-radius: 70%;
@@ -34,6 +34,7 @@
   width: 90px;
   height: 90px;
 }
+
 .text-comments {
   margin-left: 10px;
 }

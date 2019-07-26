@@ -3,14 +3,24 @@
    <p><%= image_tag helpimg(comment.user_id), class: "image-oval" %> <%= link_to help(comment.user_id), user_path(comment.user_id) %></p>
     <p><%= comment.body %></p>
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
-
+    <% if current_user %>
   <%= form_for [comment, Comment.new] do |f| %>
     <%= f.text_area :body, placeholder: "Add a Reply", minlength:"3", maxlength:"300",required:true, class:"form-control" %><br/>
       <%= f.text_area :user_id, value:current_user.id, style:"display:none" %>
     <%= f.submit "Reply", class:"btn btn-success"  %>
-  <% end %>
 
-  <ul>
+      <% if current_user %>
+        <% if  current_user.admin || (current_user.id == comment.user_id) %>
+          <%= link_to t('comments.delete'),[@commentable,comment],method: :delete, class: "btn btn-danger" %>
+        <% else %>
+        <% end %>
+      <% end %>
+      <% end %>
+      <% else %>
+    <p>Login before add comments!</p>
+  <% end %>
+    <hr>
+  <ul style="margin-top:20px">
     <%= render comment.comments %>
   </ul>
   </div>

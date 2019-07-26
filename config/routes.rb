@@ -25,10 +25,10 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :films do
-    resources :comments
+    resources :comments, :only => [:create, :destroy]
   end
 
   resources :comments do
-    resources :comments
+    resources :comments, :only => [:create, :destroy]
   end
 end
