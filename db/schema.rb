@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_091851) do
+ActiveRecord::Schema.define(version: 2019_07_26_110519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,14 +31,13 @@ ActiveRecord::Schema.define(version: 2019_07_24_091851) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "commenter"
     t.text "body"
-    t.bigint "film_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["film_id"], name: "index_comments_on_film_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "films", force: :cascade do |t|
@@ -124,7 +123,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_091851) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
-  add_foreign_key "comments", "films"
   add_foreign_key "taggings", "posts"
   add_foreign_key "taggings", "tags"
 end

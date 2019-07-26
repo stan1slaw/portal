@@ -383,7 +383,7 @@ DEPENDENCIES
   omniauth-linkedin
   omniauth-twitter
   paperclip
-  pg (>= 0.18, < 2.0)
+  pg
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-assets-chosen!

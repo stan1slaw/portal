@@ -16,14 +16,19 @@ Rails.application.routes.draw do
 
   get 'persons/profile', as: 'user_root'
   get 'users/edit', as: 'edit'
-  resources :films do
-    resources :comments
-  end
   resources :posts
   root 'posts#index'
   get 'tags/:tag', to: 'posts#index', as: :tag
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     # your routes here...
   end
+  root 'articles#index'
 
+  resources :films do
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
+  end
 end

@@ -20,12 +20,19 @@
 .links  {
   margin-top: 20px;
 }
-.main_photo_url {
+.image-oval, .main_photo_url {
   -webkit-border-radius: 70%;
   -moz-border-radius: 70%;
   border-radius: 70%;
+}
+.main_photo_url {
   width: 250px;
   height: 250px;
+
+}
+.image-oval {
+  width: 90px;
+  height: 90px;
 }
 .text-comments {
   margin-left: 10px;
@@ -80,4 +87,7 @@
 .text_on_post {
   margin-top: 10px;
 
+}
+ul {
+  list-style: none;
 }
