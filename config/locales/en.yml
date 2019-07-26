@@ -13,6 +13,10 @@ en:
     update: "Update"
     add: "Add comment"
     zero: "Zero comments"
+    warning: "Login before add comments!"
+    sumbited: "Sumbitted"
+    ago: "ago"
+    reply: "Reply"
   film:
     all: "All films"
     name: "Name"
