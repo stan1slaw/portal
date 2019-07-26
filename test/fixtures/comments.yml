@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  commenter: MyString
   body: MyText
-  film: one
+  commentable: one
+  commentable_type: Commentable
 
 two:
-  commenter: MyString
   body: MyText
-  film: two
+  commentable: two
+  commentable_type: Commentable

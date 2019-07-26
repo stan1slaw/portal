@@ -9,7 +9,7 @@ class Film < ApplicationRecord
   validates :picture, presence: true
   validates :actor, presence: true, length: { minimum: 10}
   validates :producer, presence: true, length: { minimum: 10}
-  has_many :comments, dependent: :delete_all
+  has_many :comments, as: :commentable, dependent: :delete_all
   #Film.__elasticsearch__.create_index!
  # Film.import
 

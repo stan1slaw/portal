@@ -1,35 +1,51 @@
 class CommentsController < ApplicationController
 
-  before_action :finder
+  before_action :find_commentable, :login_user
 
-  def index
+  def new
+
+    @comment = Comment.new
 
   end
-  def show
 
-  end
   def create
-    @comment = @film.comments.create(comment_params)
-    redirect_to film_path(@film), :notice => 'Comment created!'
-  
+    @comment = @commentable.comments.new(comment_params)
+
+    if @comment.save
+      redirect_to films_path, :notice => 'Comment created!'
+    else
+      redirect_to films_path, :notice => 'Comment not created!'
+    end
   end
 
   def destroy
-   
-    @comment = @film.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to film_path(@film), :notice => 'Comment deleted!'
-   
-  end
 
+    if @comment.destroy
+      redirect_to films_path, notice: "Comment deleted."
+    end
+  end
 
   private
-  def finder 
-    @film = Film.find(params[:film_id])
-  end
 
   def comment_params
-    params.require(:comment).permit(:commenter, :body, :film_id, :user_id)
-
+    params.require(:comment).permit(:body, :user_id)
   end
+
+
+  def find_commentable
+    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+    @commentable = Film.find_by_id(params[:film_id]) if params[:film_id]
+  end
+
+
+  def login_user
+    if current_user
+    else
+      render 'films/loginError', status: 403
+    end
+  end
+
+
 end

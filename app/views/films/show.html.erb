@@ -22,7 +22,17 @@
   <hr>
 </div>
 <br>
-<h2><%= t('comments.comments') %>:</h2>
-<%= render @film.comments %>
-<%= render  'comments/form', locals: {commenter:@commenter} %>
+<h3>Comments</h3>
+<% if current_user %>
+<%= form_for [@film, Comment.new] do |f| %>
+  <%= f.text_area :body, placeholder: "Add a comment", minlength:"3", maxlength:"300",required:true, class:"form-control" %><br/>
+  <%= f.text_area :user_id, value:current_user.id, style:"display:none" %>
+  <%= f.submit "Add Comment", class:"btn btn-primary" %>
+<% end %>
+  <% else %>
+  <p>Login before add comments!</p>
+<% end %>
+<ul>
+  <%= render @film.comments %>
+</ul>
 
