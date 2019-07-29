@@ -1,7 +1,7 @@
 # README
- rake db:create
- rails db:migrate
- rake db:seed
+ rake db:create <br />
+ rails db:migrate <br />
+ rake db:seed <br />
  
- email - admin@gmail.com
+ email - admin@gmail.com <br />
  password - nopassword
