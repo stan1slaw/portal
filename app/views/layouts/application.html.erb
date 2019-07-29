@@ -6,9 +6,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
 
+  </head>
   <body>
   <%= render partial: "films/login", locals: {current_user:current_user} %>
   <div class="container main">
