@@ -1,5 +1,15 @@
+
 <div class="about_film text-center">
     <h1 class="text-center"><%= @film.name %></h1>
+  <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flocalhost%3A3000%2Ffilms%2F2&width=50&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=2449518141772829"
+          width="300" height="80"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowTransparency="true" allow="encrypted-media">
+
+  </iframe>
+  <div class="fb-like" data-href="<%= "http://localhost:3000/films/"+ @film.id.to_s + "?locale=/(en|ru)/" %>" data-width="50" data-layout="standard"
+  data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
   <hr>
   <div class="image_size">
   <%= image_tag @film.picture.url unless @film.picture.nil? %>
