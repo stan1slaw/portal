@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_110519) do
+ActiveRecord::Schema.define(version: 2019_07_30_123733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actors", force: :cascade do |t|
+    t.string "name"
+    t.date "dataroz"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avtor"
+  end
+
+  create_table "actors_films", force: :cascade do |t|
+    t.bigint "actor_id"
+    t.bigint "film_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["actor_id"], name: "index_actors_films_on_actor_id"
+    t.index ["film_id"], name: "index_actors_films_on_film_id"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_110519) do
 
   create_table "films", force: :cascade do |t|
     t.string "name"
-    t.text "actor"
     t.text "producer"
     t.date "time_create"
     t.text "description"
@@ -123,6 +140,8 @@ ActiveRecord::Schema.define(version: 2019_07_26_110519) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "actors_films", "actors"
+  add_foreign_key "actors_films", "films"
   add_foreign_key "taggings", "posts"
   add_foreign_key "taggings", "tags"
 end

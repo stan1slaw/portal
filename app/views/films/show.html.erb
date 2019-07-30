@@ -15,9 +15,37 @@
   <%= image_tag @film.picture.url unless @film.picture.nil? %>
   </div>
   <hr>
-    <h2><%= t('film.actors') %>:</h2>
+    <h2>Actors</h2>
+<div class="boxsize">
+      <% @film.actors.each do |actor| %>
+      <div class="actorstyle">
 
-    <p class="font-italic "><%= @film.actor %></p>
+      <%= image_tag actor.avtor.url unless actor.avtor.nil? %>
+        <p><%=link_to actor.name, actor %></p>
+
+      <% if current_user && current_user.try(:admin?) %>
+        <%= link_to "Delete", remove_actor_path(@film, actor), :method => :delete, class: "btn btn-danger" %>
+
+        <% end %>
+      </div>
+  <% end %>
+
+
+
+  <% if current_user && current_user.try(:admin?) %>
+    <% unless @actors.empty?  %>
+      <%= form_tag add_actor_path(@film) do %>
+        <select name="actor_id", class="form-control">
+          <% @actors.each do |actor| %>
+            <option value="<%=actor.id%>"><%=actor.name%></option>
+          <% end %>
+        </select>
+        <input type="submit" value="Add actor " class="btn btn-success">
+      <% end %>
+      <% end %>
+    <% end %>
+
+</div>
   <hr>
     <h2><%= t('film.producers') %>:</h2>
 

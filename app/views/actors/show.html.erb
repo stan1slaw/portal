@@ -1,0 +1,35 @@
+<div class="text-center image_avatar">
+<h1><%= @actor.name %>
+  <% if current_user && current_user.try(:admin?) %>
+  <%= link_to "Edit", edit_actor_path(@actor), class:"btn btn-success" %>
+  <%= link_to "Delete", actor_path(@actor), :method => :delete, class:"btn btn-danger" %>
+    <% end %>
+</h1>
+<%= image_tag @actor.avtor.url unless @actor.avtor.nil? %>
+</div>
+<p class="text_on_post">Родился: <%= @actor.dataroz %></p>
+<p class="text_on_post"><%=@actor.description%></p>
+<div class="black-box">
+  <h2>Films</h2>
+  <ul>
+    <% @actor.films.each do |role| %>
+
+      <%= link_to "#{role.name}, ", film_path(role) %>
+        <% if current_user && current_user.try(:admin?) %>
+        <%= link_to "X", remove_film_path(@actor, role), :method => :delete, class: "btn btn-danger" %>
+        <% end %>
+
+    <% end %>
+  </ul>
+  <% if current_user && current_user.try(:admin?) %>
+  <% unless @films.empty? %>
+    <%= form_tag add_film_path do |f|%>
+      <%= collection_select :film, :id, @films, :id, :name %>
+      <%= submit_tag "Add", class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+    <% end  %>
+</div>
+
+
+

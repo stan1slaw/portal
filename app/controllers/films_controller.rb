@@ -1,6 +1,6 @@
 class FilmsController < ApplicationController
-  before_action :find_film,      only: [:show,:edit,:destroy,:update,:upvote,:downvote]
-  before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update]
+  before_action :find_film,      only: [:show,:edit,:destroy,:update, :upvote, :downvote]
+  before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update,:add_actor,:remove_actor]
   def index
     # Сортировки про
     @films = Film.all.order("cached_votes_up DESC")
@@ -8,6 +8,7 @@ class FilmsController < ApplicationController
   end
   # /films/1 GET
   def show
+    @actors = Actor.all - @film.actors
     if @film
     else
       render "films/notFound"
@@ -58,6 +59,21 @@ class FilmsController < ApplicationController
     redirect_to films_path, :notice => "You made choose!"
   end
 
+  def add_actor
+    film = Film.find(params[:id])
+    actor = Actor.find(params[:actor_id])
+    unless film.actors.include? actor
+      film.actors << actor
+    end
+    redirect_to film_path(film)
+  end
+
+  def remove_actor
+    film = Film.find(params[:id])
+    actor = Actor.find(params[:actor_id])
+    film.actors.delete(actor)
+    redirect_to film_path(film)
+  end
 
   private
 

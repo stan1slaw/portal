@@ -1,0 +1,20 @@
+<h1>Add an actor</h1>
+
+<%= form_for @actor do |f| %>
+  <div class="form-group">
+  <%= f.text_field :name, :placeholder => "Name", class:"form-control" %>
+  </div>
+  <div class="form-group">
+  <%= f.text_area :description, :placeholder => "Description", class:"form-control" %>
+  </div>
+  <div class="form-group">
+  <%= f.date_field :dataroz, class:"form-control", max: Date.today %>
+  </div>
+  <label class="btn btn-primary">
+    <%= t('film.addpreview') %>
+    <span style="display:none;">
+    <%= f.file_field :avtor, required:true %>
+    </span>
+  </label><br>
+  <%= f.submit "Add actor", class:"btn btn-warning" %>
+<% end %>

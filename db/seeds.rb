@@ -25,50 +25,17 @@ User.create!([
              ])
 
 Film.create!([
-                 {name: "Star Wars 7",
-                  actor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-                  producer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",
-                  time_create: "2015-12-17",
-                  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",
-                  picture: Rails.root.join("app/assets/images/star_wars.jpg").open,
-                  cached_votes_total: 0,
-                  cached_votes_score: 0,
-                  cached_votes_up: 0,
-                  cached_votes_down: 0,
-                  cached_weighted_score: 0,
-                  cached_weighted_total: 0,
-                  cached_weighted_average:0},
-
-                 {name: "Roque One",
-                  actor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-                  producer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",
-                  time_create: "2016-12-10",
-                  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",
-                  picture: Rails.root.join("app/assets/images/roque.jpeg").open,
-                  cached_votes_total: 0,
-                  cached_votes_score: 0,
-                  cached_votes_up: 0,
-                  cached_votes_down: 0,
-                  cached_weighted_score: 0,
-                  cached_weighted_total: 0,
-                  cached_weighted_average:0},
-
-                 {name: "John Wick 3",
-                  actor: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-                  producer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",
-                  time_create: "2019-05-09",
-                  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",
-                  picture: Rails.root.join("app/assets/images/john_wick.jpeg").open,
-                  cached_votes_total: 0,
-                  cached_votes_score: 0,
-                  cached_votes_up: 0,
-                  cached_votes_down: 0,
-                  cached_weighted_score: 0,
-                  cached_weighted_total: 0,
-                  cached_weighted_average:0},
-
+                 {name: "Star Wars 7", producer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam", time_create: "2015-12-17", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam", picture: Rails.root.join("app/assets/images/star_wars.jpg").open, cached_votes_total: 1, cached_votes_score: 1, cached_votes_up: 1, cached_votes_down: 0, cached_weighted_score: 1, cached_weighted_total: 1, cached_weighted_average: 1.0},
+                 {name: "Roque One", producer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam", time_create: "2016-12-10", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",picture: Rails.root.join("app/assets/images/roque.jpeg").open, cached_votes_total: 1, cached_votes_score: 1, cached_votes_up: 1, cached_votes_down: 0, cached_weighted_score: 1, cached_weighted_total: 1, cached_weighted_average: 1.0},
+                 {name: "John Wick 3", producer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam", time_create: "2019-05-09", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam",picture: Rails.root.join("app/assets/images/john_wick.jpeg").open, cached_votes_total: 1, cached_votes_score: -1, cached_votes_up: 0, cached_votes_down: 1, cached_weighted_score: -1, cached_weighted_total: 1, cached_weighted_average: -1.0}
              ])
 
+
+Actor.create!([
+                  {name: "Keanu Reeves", dataroz: "1964-09-02", description: "Keanu Charles Reeves is a Canadian actor and musician. He gained fame for his starring roles in several blockbuster films, including comedies from the Bill and Ted franchise; action thrillers Point ...", avtor: Rails.root.join("app/assets/images/john_wick.jpeg").open},
+                  {name: "John Boyega", dataroz: "1992-03-17", description: "John Adedayo B. Adegboyega, known professionally as John Boyega, is an English actor known for playing Finn in the 2015 film Star Wars: The Force Awakens and its 2017 sequel Star Wars: The Last Jedi, respectively the seventh and eighth films of the Star Wars series.", avtor: Rails.root.join("app/assets/images/john_boeyga.jpeg").open},
+                  {name: "Daisy Ridley", dataroz: "1992-08-10", description: "Daisy Jazz Isobel Ridley is an English actress. Born in Westminster and brought up in Maida Vale, Ridley trained in drama at the Tring Park School for the Performing Arts. She began acting in minor guest roles on television and in short films, making her film debut in the independent horror film Scrawl.", avtor: Rails.root.join("app/assets/images/film1.jpeg").open},
+              ])
 
 Post.create!([
                  {title: "Star Wars 7 ", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae, consequatur dicta dolorem doloribus minima sapiente suscipit tempora unde vero! Deleniti eum nostrum omnis sequi sint. Et illo praesentium quod.", avatars: [Rails.root.join("app/assets/images/star_wars.jpg").open]},
@@ -98,4 +65,22 @@ Tagging.create!([
                     {tag_id: 2, post_id: 5},
                     {tag_id: 1, post_id: 5},
                     {tag_id: 4, post_id: 5}
+                ])
+ActorsFilm.create!([
+                       {actor_id: 1, film_id: 1},
+                       {actor_id: 1, film_id: 2},
+                       {actor_id: 2, film_id: 1},
+                       {actor_id: 2, film_id: 2},
+                       {actor_id: 3, film_id: 1},
+                       {actor_id: 3, film_id: 2},
+                       {actor_id: 3, film_id: 3}
+                   ])
+ActsAsVotable::Vote.create!([
+                                {votable_type: "Film", votable_id: 1, voter_type: "User", voter_id: 1, vote_flag: true, vote_scope: nil, vote_weight: 1},
+                                {votable_type: "Film", votable_id: 2, voter_type: "User", voter_id: 1, vote_flag: true, vote_scope: nil, vote_weight: 1},
+                                {votable_type: "Film", votable_id: 3, voter_type: "User", voter_id: 1, vote_flag: false, vote_scope: nil, vote_weight: 1}
+                            ])
+Comment.create!([
+                    {body: "nice film!!!!!!!!!!!!!!!!!!!!!!!!!!1", commentable_type: "Film", commentable_id: 1, user_id: 1},
+                    {body: "i think to", commentable_type: "Comment", commentable_id: 1, user_id: 1}
                 ])

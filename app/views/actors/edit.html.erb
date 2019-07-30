@@ -1,0 +1,8 @@
+<h1>Edit</h1>
+
+<%= form_for @actor do |f| %>
+  <%= f.text_field :name, :placeholder => "Name" %>
+  <%= f.text_area :description, :placeholder => "Description" %>
+  <%= f.date_field :dataroz %>
+  <%= f.submit %>
+<% end %>

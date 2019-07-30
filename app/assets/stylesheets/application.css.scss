@@ -92,3 +92,26 @@
 ul {
   list-style: none;
 }
+.black-box {
+  border: solid black 2px;
+  margin: 1em;
+  padding: 1em;
+}
+.actorstyle {
+  margin: 10px;
+  img {
+    width:200px;
+    height: 200px;
+  }
+}
+.boxsize {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+.image_avatar img{
+  width: 400px;
+  height: 500px;
+}
