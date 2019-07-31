@@ -25,3 +25,4 @@ $(document).on('turbolinks:load', function () {
         width: '100%'
     })
 });
+

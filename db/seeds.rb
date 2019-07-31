@@ -83,3 +83,9 @@ Comment.create!([
   {body: "i think to", commentable_type: "Comment", commentable_id: 1, user_id: 1}
 ])
 AdminUser.create!(email: 'admin@gmail.com', password: 'nopassword', password_confirmation: 'nopassword') if Rails.env.development?
+
+Review.create!([
+  {user_id: 1, body: "this film is very bad", rating: 3, film_id: 1},
+  {user_id: 1, body: "THAT WAS INSAME", rating: 10, film_id: 1},
+  {user_id: 1, body: "AND what i need to do???", rating: 5, film_id: 1}
+])

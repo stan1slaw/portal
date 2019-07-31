@@ -59,7 +59,20 @@
     <p class="font-italic " ><strong><%= dateminus(@film.time_create.to_date)%></strong> <%= t('film.datefrom') %></p>
   <hr>
 </div>
-<br>
+
+
+
+
+<h2 class="text-center"><%= @film.reviews.count %> Reviews from professionals, average rating of film: <strong style="color:red"><%= @film.reviews.average('rating') %></strong> </h2>
+<hr>
+<%= render @film.reviews %>
+<% if current_user && current_user.critic %>
+  <h2>Add review:</h2>
+  <%= render 'reviews/form' %>
+<%end %>
+
+
+
 <h3><%= t('comments.comments') %></h3>
 <% if current_user %>
 <%= form_for [@film, Comment.new] do |f| %>

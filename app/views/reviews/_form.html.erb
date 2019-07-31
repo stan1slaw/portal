@@ -1,0 +1,7 @@
+
+<%= form_for [@film,@film.reviews.build] do |f|%>
+           <%= f.text_area :user_id, value: current_user.id, style:"display:none"  %>
+           <%= f.text_area :body, required: true, minlength: 3, maxlength:1000, placeholder:"review" %>
+           <%= f.number_field :rating, min: 1, max:10, step:1, required: true,value: 10%>
+           <%= f.submit "Add review" %>
+         <% end %>
