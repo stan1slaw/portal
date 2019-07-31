@@ -5,6 +5,7 @@
 <div class="post_one">
   <% @actors.each do |star| %>
     <div class="card" style="width:400px">
+      <%= image_tag star.avtor.url ,class:"card-img-top"%>
       <div class="card-body">
         <h4 class="card-title"><%= star.name  %></h4>
         <p class="card-text"><%= truncate(star.description, length: 45) %></p>

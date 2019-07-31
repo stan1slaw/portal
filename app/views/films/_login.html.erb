@@ -22,9 +22,11 @@
           <li class="nav-item">
            <%= link_to t('navbar.profile'), user_root_url, class:"nav-link" %>
           </li>
+
         <li class="nav-item">
           <%= link_to t('navbar.logout'), destroy_user_session_path, :method => :delete, class: "nav-link"%>
         </li>
+
       <% else %>
         <li class="nav-item">
           <%= link_to t('navbar.films'), films_path, class: "nav-link" %>
@@ -41,6 +43,7 @@
         <li class="nav-item">
         <%= link_to t('navbar.signup'), new_user_registration_path , class:"nav-link"%>
         </li>
+
       <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">

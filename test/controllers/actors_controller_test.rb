@@ -35,5 +35,4 @@ class ActorsControllerTest < ActionDispatch::IntegrationTest
     get actors_destroy_url
     assert_response :success
   end
-
 end

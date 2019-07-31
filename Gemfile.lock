@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/elastic/elasticsearch-rails.git
-  revision: 460475dd1e1ccaab4a4535dd8e7c346fdc58be12
+  revision: 62191f8cd494595b6ad4dee5e22a06c1091c1805
   branch: master
   specs:
     elasticsearch-model (7.0.0.pre)
@@ -8,6 +8,33 @@ GIT
       elasticsearch (> 1)
       hashie
     elasticsearch-rails (7.0.0.pre)
+
+GIT
+  remote: https://github.com/activeadmin/activeadmin
+  revision: 2f67e1326340f1a0535d828396bbe7360e4f9460
+  specs:
+    activeadmin (2.2.0)
+      arbre (~> 1.2, >= 1.2.1)
+      formtastic (~> 3.1)
+      formtastic_i18n (~> 0.4)
+      inherited_resources (~> 1.7)
+      jquery-rails (~> 4.2)
+      kaminari (~> 1.0, >= 1.0.1)
+      railties (>= 5.0, < 6.1)
+      ransack (~> 2.1, >= 2.1.1)
+      sassc-rails (~> 2.1)
+      sprockets (>= 3.0, < 4.1)
+      sprockets-es6 (~> 0.9, >= 0.9.2)
+
+GIT
+  remote: https://github.com/activeadmin/inherited_resources
+  revision: a9fb2486baefdc7bd6f695392c66b2e7012eef0e
+  specs:
+    inherited_resources (1.10.0)
+      actionpack (>= 5.0, < 6.1)
+      has_scope (~> 0.6)
+      railties (>= 5.0, < 6.1)
+      responders (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -54,17 +81,23 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts_as_votable (0.12.0)
+    acts_as_votable (0.12.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    arbre (1.2.1)
+      activesupport (>= 3.0.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
     autoprefixer-rails (9.6.1)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.13)
-    bindex (0.7.0)
+    bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     bootstrap (4.3.1)
@@ -73,7 +106,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
-    capybara (3.25.0)
+    capybara (3.27.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -109,27 +142,24 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise_token_auth (1.1.0)
-      devise (> 3.5.2, < 4.7)
-      rails (>= 4.2.0, < 6)
     diff-lcs (1.3)
-    elasticsearch (7.2.0)
-      elasticsearch-api (= 7.2.0)
-      elasticsearch-transport (= 7.2.0)
-    elasticsearch-api (7.2.0)
+    elasticsearch (7.2.1)
+      elasticsearch-api (= 7.2.1)
+      elasticsearch-transport (= 7.2.1)
+    elasticsearch-api (7.2.1)
       multi_json
-    elasticsearch-transport (7.2.0)
+    elasticsearch-transport (7.2.1)
       faraday
       multi_json
     erubi (1.8.0)
-    excon (0.64.0)
+    excon (0.65.0)
     execjs (2.7.0)
     factory_girl (4.9.0)
       activesupport (>= 3.0.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
-    filterrific (5.1.0)
+    filterrific (5.2.0)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -149,13 +179,19 @@ GEM
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     formatador (0.2.5)
+    formtastic (3.1.5)
+      actionpack (>= 3.2.13)
+    formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    has_scope (0.7.2)
+      actionpack (>= 4.1)
+      activesupport (>= 4.1)
     hashie (3.6.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    image_processing (1.9.0)
-      mini_magick (>= 4.9.3, < 5)
+    image_processing (1.9.2)
+      mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.13, < 3)
     io-like (0.3.0)
     ipaddress (0.8.3)
@@ -167,6 +203,18 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (2.2.1)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     libv8 (7.3.492.27.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -184,7 +232,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
-    mini_magick (4.9.3)
+    mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     mini_racer (0.2.6)
@@ -267,14 +315,19 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
-    rake (12.3.2)
+    rake (12.3.3)
+    ransack (2.1.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    regexp_parser (1.5.1)
-    responders (3.0.0)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
+    regexp_parser (1.6.0)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
@@ -340,6 +393,10 @@ GEM
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
+    sprockets-es6 (0.9.2)
+      babel-source (>= 5.8.11)
+      babel-transpiler
+      sprockets (>= 3.0.0)
     sprockets-rails (3.2.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
@@ -374,6 +431,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeadmin!
   acts_as_votable (~> 0.12.0)
   autoprefixer-rails
   bcrypt (~> 3.1.13)
@@ -385,13 +443,13 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  devise_token_auth
   elasticsearch-model!
   elasticsearch-rails!
   factory_girl
   filterrific
   fog-aws
   font-awesome-rails
+  inherited_resources!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
