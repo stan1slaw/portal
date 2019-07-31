@@ -1,5 +1,6 @@
 <div class="text-center">
 <h2><%= image_tag helpimg(review.user_id), class: "image-oval" %> <%= link_to help(review.user_id), user_path(review.user_id) %>,rating: <strong style="color:red"><%= review.rating %></strong></h2>
 <%= review.body %>
+
 </div>
 <hr>

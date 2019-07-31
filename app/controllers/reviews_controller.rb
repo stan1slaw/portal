@@ -6,9 +6,4 @@ class ReviewsController < ApplicationController
     redirect_to film_path(@film)
   end
 
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to films_path, :notice => "Review was deleted!"
-  end
 end
