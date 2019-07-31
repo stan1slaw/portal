@@ -82,4 +82,4 @@ Comment.create!([
   {body: "nice film!!!!!!!!!!!!!!!!!!!!!!!!!!1", commentable_type: "Film", commentable_id: 1, user_id: 1},
   {body: "i think to", commentable_type: "Comment", commentable_id: 1, user_id: 1}
 ])
-AdminUser.create!(email: 'admin@gmail.com', password: 'nopassword', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@gmail.com', password: 'nopassword', password_confirmation: 'nopassword') if Rails.env.development?
