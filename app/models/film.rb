@@ -13,5 +13,5 @@ class Film < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :delete_all
   #Film.__elasticsearch__.create_index!
  # Film.import
-
+  has_many :reviews
 end

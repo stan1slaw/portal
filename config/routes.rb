@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'review/index'
+  get 'review/show'
+  get 'review/destroy'
+  get 'review/edit'
+  get 'review/update'
+  get 'review/new'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -41,8 +47,10 @@ Rails.application.routes.draw do
   resources :films do
     resources :comments, :only => [:create, :destroy]
   end
-
   resources :comments do
     resources :comments, :only => [:create, :destroy]
+  end
+  resources :films do
+    resources :reviews
   end
 end
