@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-  before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update]
+  before_action :admin_user, only: [:edit, :delete, :new, :destroy, :update]
   def index
     @actors = Actor.all
   end
@@ -40,9 +40,7 @@ class ActorsController < ApplicationController
     film_params = params.require(:film).permit(:id)
     actor = Actor.find(params[:id])
     film = Film.find(film_params[:id])
-    unless actor.films.include? film
-      actor.films << film
-    end
+    actor.films << film unless actor.films.include? film
     redirect_to actor_path(actor)
   end
 
@@ -54,6 +52,7 @@ class ActorsController < ApplicationController
   end
 
   private
+
   def admin_user
     if current_user.try(:admin?)
 

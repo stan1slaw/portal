@@ -62,9 +62,7 @@ class FilmsController < ApplicationController
   def add_actor
     film = Film.find(params[:id])
     actor = Actor.find(params[:actor_id])
-    unless film.actors.include? actor
-      film.actors << actor
-    end
+    film.actors << actor unless film.actors.include? actor
     redirect_to film_path(film)
   end
 

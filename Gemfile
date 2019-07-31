@@ -14,6 +14,8 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
