@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = extract_locale || I18n.default_locale
   end
 
+  def favorite_text
+    return @favorite_exists ? "UnFavorite" : "Favorite"
+  end
+  helper_method :favorite_text
   protected
 
   def extract_locale

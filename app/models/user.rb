@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   acts_as_voter
   has_many :comments
+  has_many :favorites
   mount_uploader :avatar, AvatarUploader
   validates :username, uniqueness: true
   validates :email, uniqueness: true

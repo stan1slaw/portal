@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favorites/update'
   get 'review/index'
   get 'review/show'
   get 'review/destroy'

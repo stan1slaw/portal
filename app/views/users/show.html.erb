@@ -4,6 +4,7 @@
 <p><%= t('profile.private') %></p>
 <% else %>
     <%= render partial: "films/information", locals: {current_user:@user} %>
+    <%= render partial: "films/activity", locals:{current_user:@user} %>
 <% end %>
 
 </div>
