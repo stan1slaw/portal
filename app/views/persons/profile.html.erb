@@ -6,6 +6,7 @@
   <%= link_to 'Русский', root_path(locale: :ru), class: "btn btn-warning" %>
   <% if current_user.try(:admin?) || user_signed_in? %>
     <%= render partial: "films/information", locals: {current_user:current_user} %>
+    <%= render partial: "films/activity", locals:{current_user:current_user} %>
     <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
     <% if current_user.privat %>
       <p><%= t('profile.onlyforyou') %></p>

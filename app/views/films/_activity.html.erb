@@ -1,0 +1,9 @@
+<h2>Last activity:</h2>
+<% current_user.comments.sort_by{|t| - t.created_at.to_i}.first(3).each do |comment|  %>
+  [<%= comment.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> commented <%= link_to comment.commentable_type, film_path(comment.commentable_id) %>
+  <hr>
+<% end %>
+<% current_user.favorites.sort_by{|t| - t.created_at.to_i}.first(3).each do |favorite| %>
+  [<%= favorite.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> favorited this film: <%= link_to favorite.film.name, favorite.film %>
+  <hr>
+<% end %>

@@ -8,6 +8,7 @@ class FilmsController < ApplicationController
   end
   # /films/1 GET
   def show
+    @favorite_exists = Favorite.where(film: @film, user: current_user) == [] ? false : true
     @actors = Actor.all - @film.actors
     if @film
     else
