@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe FilmsController, type: :controller do
+
+
+not_found :destroy, :show
+  let(:page) do
+    Capybara::Node::Simple.new(response.body)
+  end
    describe "GET #index" do
      let(:film_first) {FactoryBot.create(:film)}
      let(:film_second) {FactoryBot.create(:film)}
@@ -33,6 +39,15 @@ RSpec.describe FilmsController, type: :controller do
     it "Add film with admins rules" do
       get :new
       response.should render_template :new
+    end
+  end
+  describe "DELETE #destroy" do
+    login_user
+    it "redirect to action#index" do
+      film = FactoryBot.create (:film)
+      expect do
+        delete :destroy, params: {id: film.id }
+      end.to change(Film,:count).by(-1)
     end
   end
 
