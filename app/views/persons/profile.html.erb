@@ -1,11 +1,14 @@
-<h1 class="text-center"><%= t('profile.name') %></h1>
+<h1 class="text-center"><%= t('profile.name') %> <%= current_user.name%></h1>
 <div class="information_profile text-center">
 
-  <p><%= t('profile.localize') %>:</p>
+  <p><%= t('profile.localize') %>: </p>
   <%= link_to 'English', root_path(locale: :en), class: "btn btn-warning" %>
   <%= link_to 'Русский', root_path(locale: :ru), class: "btn btn-warning" %>
   <% if current_user.try(:admin?) || user_signed_in? %>
     <%= render partial: "films/information", locals: {current_user:current_user} %>
+    <hr>
+    <%= render partial: "films/favorites",locals:{current_user:current_user} %>
+
     <%= render partial: "films/activity", locals:{current_user:current_user} %>
     <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
     <% if current_user.privat %>

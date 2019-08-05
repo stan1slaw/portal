@@ -1,0 +1,5 @@
+<h2>Favorites film:</h2>
+<% current_user.favorites.each do |favorite| %>
+  <%= link_to favorite.film.name, favorite.film %><br>
+<% end %>
+<hr>

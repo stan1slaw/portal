@@ -31,4 +31,12 @@ class User < ApplicationRecord
       user.avatar = auth.info.image # assuming the user model has an image
     end
   end
+
+  def name
+    [first_name,last_name].join " "
+  end
+
+  def self.search_by_letter(letter)
+    where("username LIKE ?","#{letter}%").order(:username)
+  end
 end
