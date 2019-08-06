@@ -8,7 +8,6 @@ class Film < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :name, presence: true, length: { in: 3..40 }
   validates :description, presence: true, length: {in: 30..800}
-  validates :picture, presence: true
   validates :producer, presence: true, length: { minimum: 10}
   has_many :comments, as: :commentable, dependent: :delete_all
   #Film.__elasticsearch__.create_index!

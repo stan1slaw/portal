@@ -3,9 +3,9 @@
   <%= render partial: "form", locals: {f:f} %>
   <label class="btn btn-primary">
     <%= t('film.addpreview') %>
-    <span style="display:none;">
+
     <%= f.file_field :picture, required:true %>
-    </span>
+
   </label>
   <p><%= f.submit t('film.add'), class:"btn btn-success" %></p>
 <% end %>

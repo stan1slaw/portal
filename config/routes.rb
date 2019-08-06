@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
-
   get 'home/index'
   resource :profile
   resources :films do
@@ -54,4 +53,5 @@ Rails.application.routes.draw do
   resources :films do
     resources :reviews
   end
+  resources :password_resets
 end
