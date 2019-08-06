@@ -10,7 +10,7 @@ require 'rspec/rails'
 require 'devise'
 require "capybara/rspec"
 require 'capybara/rails'
-require "selenium/webdriver"
+require 'webdrivers/chromedriver'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

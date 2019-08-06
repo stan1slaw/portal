@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe "Creating Film with login", type: :feature, js: true do
   scenario "login in admin and add new film" do
     user = FactoryBot.create(:admin)

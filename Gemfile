@@ -69,7 +69,7 @@ group :development, :test do
   gem 'factory_bot_rails', "~> 4.10.0"
   gem 'guard-rspec'
   gem 'rails-controller-testing'
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 4.0'
 end
 
 group :development do
@@ -88,7 +88,6 @@ group :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'webdrivers'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
