@@ -22,7 +22,7 @@ en:
     actors: "Actors"
     producers: "Producers"
     description: "Description"
-    date: "Premier date"
+    date: "Premier"
     datefrom: "days from premier"
     add: "Add film"
     edit: "Edit film"

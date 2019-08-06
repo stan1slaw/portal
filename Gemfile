@@ -67,7 +67,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails', "~> 4.10.0"
+  gem 'guard-rspec'
   gem 'rails-controller-testing'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -86,8 +88,7 @@ group :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'webdrivers', '~> 4.0'
-  gem 'selenium-webdriver'
+  gem 'webdrivers'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 

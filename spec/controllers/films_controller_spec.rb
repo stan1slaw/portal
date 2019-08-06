@@ -35,14 +35,14 @@ not_found :destroy, :show
   end
 
   describe "GET #new" do
-    login_user
+    login_admin
     it "Add film with admins rules" do
       get :new
       response.should render_template :new
     end
   end
   describe "DELETE #destroy" do
-    login_user
+    login_admin
     it "redirect to action#index" do
       film = FactoryBot.create (:film)
       expect do
