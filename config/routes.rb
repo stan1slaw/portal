@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :franchises
   get 'favorites/update'
   get 'review/index'
   get 'review/show'

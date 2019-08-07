@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Franchises</h1>
+
+<div class="post_one">
+  <% @franchises.each do |franchise| %>
+    <%= render partial: "franchise", locals: {franchise:franchise} %>
+
+  <% end %>
+
+</div>
+
+
+
+<%= link_to 'New Franchise', new_franchise_path, class:"btn btn-success" %>

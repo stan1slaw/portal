@@ -13,4 +13,5 @@ class Film < ApplicationRecord
   #Film.__elasticsearch__.create_index!
  # Film.import
   has_many :reviews
+  belongs_to :franchise
 end

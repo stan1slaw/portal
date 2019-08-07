@@ -46,6 +46,8 @@ en:
     welcome: "Hello,"
     films: "Films"
     posts: "Posts"
+    franchises: "Franchises"
+    actors: "Actors"
     profile: "Profile"
     logout: "Logout"
     signin: "Sign In"

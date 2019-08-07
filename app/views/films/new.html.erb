@@ -1,5 +1,5 @@
 <h1 class="text-center"><%= t('film.add') %></h1>
-<%= form_for @film do |f| %>
+<%= simple_form_for @film do |f| %>
   <%= render partial: "form", locals: {f:f} %>
   <label class="btn btn-primary">
     <%= t('film.addpreview') %>
