@@ -50,13 +50,14 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
-.DS_Store
-.rubocop.yml
-.rubocop_todo.yml
+!.DS_Store
+!.rubocop.yml
+!.rubocop_todo.yml
 .ruby-version
-elasticsearch.yml
+!elasticsearch.yml
 /tmp/
-Gemfile.lock
+!Gemfile.lock
+!package.json
 # Ignore Byebug command history file.
 .byebug_history
 

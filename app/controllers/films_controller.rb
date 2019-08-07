@@ -26,10 +26,10 @@ class FilmsController < ApplicationController
   # /films POST
   def create
     @film = Film.create(film_params)
-    if @film.errors.empty?
-      redirect_to film_path(@film), :notice => "film was created!"
+    if @film.save
+      redirect_to @film, :notice => "Film was created!"
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -77,7 +77,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:name, :actor, :producer, :description, :time_create, :picture)
+    params.require(:film).permit(:name, :actor, :producer, :description, :time_create, {picture: []})
   end
 
   def find_film

@@ -13,7 +13,13 @@
   data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
   <hr>
   <div class="image_size">
-  <%= image_tag @film.picture.url unless @film.picture.nil? %>
+  <%= image_tag @film.picture[0].url unless @film.picture[0].nil? %>
+  </div>
+  <hr>
+  <div class="boxsize">
+    <% @film.picture.each do  |image| %>
+      <%= image_tag image.url, class:"img-fluid  img-thumbnail actors"%>
+    <% end %>
   </div>
   <hr>
     <h2>Actors</h2>

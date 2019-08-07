@@ -4,7 +4,7 @@
   <label class="btn btn-primary">
     <%= t('film.addpreview') %>
 
-    <%= f.file_field :picture, required:true %>
+    <%= f.file_field :picture, required:true, multiple: true %>
 
   </label>
   <p><%= f.submit t('film.add'), class:"btn btn-success" %></p>

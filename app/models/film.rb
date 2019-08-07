@@ -5,7 +5,7 @@ class Film < ApplicationRecord
   acts_as_votable
   has_many :actors_films, dependent: :destroy
   has_many :actors, through: :actors_films
-  mount_uploader :picture, PictureUploader
+  mount_uploaders :picture, PictureUploader
   validates :name, presence: true, length: { in: 3..40 }
   validates :description, presence: true, length: {in: 30..800}
   validates :producer, presence: true, length: { minimum: 10}

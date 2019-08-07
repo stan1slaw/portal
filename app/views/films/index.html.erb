@@ -8,7 +8,7 @@
 <% else %>
 <div class="row">
     <% @films.each do |f|  %>
-    <div class=" col-md-4 text-center">
+    <div class=" col-md-4 text-center" style="margin-top: 10px">
       <div class="img-thumbnail thumb-box">
         <h3 class="text-center" style="display:inline-block"><%= link_to f.name, film_path(f)%></h3>
         <% if f.cached_votes_score > 0 %>
@@ -16,7 +16,7 @@
           <% else %>
           <p style="display:inline-block;color:red;size: 14px;">(<%= f.cached_votes_score %>)</p>
           <% end %>
-          <%= image_tag picturevalid(f.picture.url), style: 'height:350px;width:90%'%>
+          <%= image_tag picturevalid(f.picture[0].url), style: 'height:350px;width:90%'%>
         
         <div class="caption text-center main_photo_information">
     <% if current_user && current_user.try(:admin?) %>
