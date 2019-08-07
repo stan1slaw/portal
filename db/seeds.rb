@@ -18,6 +18,7 @@ User.create!([
                   confirmation_sent_at: "2019-07-29 10:45:51",
                   unconfirmed_email: nil,
                   provider: nil,
+                  admin: true,
                   uid: nil,
                   name: nil,
                   image: nil}

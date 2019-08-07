@@ -14,4 +14,5 @@ class Film < ApplicationRecord
  # Film.import
   has_many :reviews
   belongs_to :franchise
+
 end
