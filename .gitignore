@@ -1,4 +1,4 @@
-*.rbc
+*.rb
 capybara-*.html
 .rspec
 /db/*.sqlite3
@@ -50,7 +50,13 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
-
+.DS_Store
+.rubocop.yml
+.rubocop_todo.yml
+.ruby-version
+elasticsearch.yml
+/tmp/
+Gemfile.lock
 # Ignore Byebug command history file.
 .byebug_history
 
