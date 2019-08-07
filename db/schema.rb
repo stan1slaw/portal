@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_080645) do
+ActiveRecord::Schema.define(version: 2019_08_07_085430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 2019_08_07_080645) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.bigint "franchise_id"
+    t.index ["franchise_id"], name: "index_films_on_franchise_id"
+  end
+
+  create_table "franchises", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "display_in_navbar", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -177,6 +187,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_080645) do
   add_foreign_key "actors_films", "films"
   add_foreign_key "favorites", "films"
   add_foreign_key "favorites", "users"
+  add_foreign_key "films", "franchises"
   add_foreign_key "reviews", "films"
   add_foreign_key "taggings", "posts"
   add_foreign_key "taggings", "tags"

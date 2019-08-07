@@ -45,6 +45,8 @@ ru:
   navbar:
     welcome: "Привет,"
     films: "Фильмы"
+    actors: "Актёры"
+    franchises: "Франшизы"
     posts: "Посты"
     profile: "Профиль"
     logout: "Выйти"

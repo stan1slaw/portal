@@ -1,7 +1,14 @@
 
 <div class="about_film text-center">
-    <h1 class="text-center"><%= @film.name%><small style="font-size: 14px;color: red" class="btn btn-danger">
-      <%= link_to favorite_text, favorites_update_path(film: @film), id:"favorite" %></small></h1>
+    <h1 class="text-center"><%= @film.name%>
+      <small style="font-size: 14px;color: yellow" class="btn btn-warning">
+      <%= link_to "Add Franchise", new_franchise_path %>
+      </small>
+      <small style="font-size: 14px;color: red" class="btn btn-danger">
+      <%= link_to favorite_text, favorites_update_path(film: @film), id:"favorite" %>
+      </small>
+    </h1>
+  <p>Franchise: <%= @film.franchise.name %></p>
   <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flocalhost%3A3000%2Ffilms%2F2&width=50&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=2449518141772829"
           width="300" height="80"
           style="border:none;overflow:hidden"

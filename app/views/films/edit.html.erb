@@ -1,6 +1,6 @@
 
 <h1><%= t('film.edit') %></h1>
-<%= form_for @film do |f| %>
+<%= simple_form_for @film do |f| %>
   <%= render partial: "form", locals: {f:f} %>
   <label class="btn btn-primary">
     <%= t('film.addpreview') %>

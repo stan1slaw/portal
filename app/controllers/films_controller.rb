@@ -3,7 +3,13 @@ class FilmsController < ApplicationController
   before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update,:add_actor,:remove_actor]
   def index
     # Сортировки про
-    @films = Film.all.order("cached_votes_up DESC")
+    if params.has_key?(:franchise)
+      @franchise = Franchise.find_by_name(params[:franchise])
+      @films = Film.where(franchise: @franchise)
+    else
+      @films = Film.all.order("cached_votes_up DESC")
+    end
+
 
   end
   # /films/1 GET
@@ -77,7 +83,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:name, :actor, :producer, :description, :time_create, {picture: []})
+    params.require(:film).permit(:name, :actor, :producer, :description, :time_create, {picture: []}, :franchise_id)
   end
 
   def find_film

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @franchise.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @franchise.description %>
+</p>
+
+<p>Films:
+
+<% @films.each do |s| %>
+  <li>
+ <%= link_to s.name, film_path(s) %>
+  </li>
+<% end %>
+
+</p>
+<% if current_user && current_user.try(:admin?) %>
+<%= link_to 'Edit', edit_franchise_path(@franchise), class:"btn btn-success"%>
+<% end %>

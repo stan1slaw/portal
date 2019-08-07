@@ -1,0 +1,14 @@
+
+<div class="card text-center" style="width:250px;max-height: 250px;">
+  <div class="card-img-top">
+    <h4 class="card-title"><%= truncate(franchise.name, length: 50) %></h4>
+    <p class="card-text"><%= truncate(franchise.description, length: 100) %></p>
+    <%= link_to 'check franchise', franchise_path(franchise), class: "btn btn-info" %>
+    <% if current_user && current_user.try(:admin?) %>
+      <%= link_to "Delete",franchise, method: :delete, class: "btn btn-danger" %>
+    <% end %>
+
+  </div>
+  <small><%=  franchise.display_in_navbar ? 'This franchise is popular' : ''  %>
+  </small>
+</div>

@@ -14,5 +14,6 @@
       <div class="form-group">
         <label for="input_time"><%= t('film.date') %>:</label>
 <%= f.date_field :time_create, class:"form-control", id:"input_time", required: true, id:"dataPickerId", max: Date.today  %>
+      <%= f.association :franchise %>
       </div>
 </div>
