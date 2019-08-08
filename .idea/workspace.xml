@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da0d015d-6ba6-4e1b-ba49-893fd1f1e00e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/db_0.stat" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/db_0.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/db_13067.stat" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/db_13067.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/db_17499.stat" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/db_17499.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/global.stat" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/db/pg_stat_tmp/global.stat" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +164,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565269396396</updated>
-      <workItem from="1565269398680" duration="5874000" />
+      <workItem from="1565269398680" duration="6126000" />
     </task>
     <servers />
   </component>

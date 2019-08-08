@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
   describe "password_reset" do
-    let(:user) {FactoryBot.create(:user,:password_reset_token => "anything")}
+    let(:user) { FactoryBot.create(:user, password_reset_token: "anything") }
     let(:mail) { UserMailer.password_reset(user) }
 
     it "send user password reset url" do

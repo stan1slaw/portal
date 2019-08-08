@@ -3,7 +3,7 @@ class FilmsController < ApplicationController
   before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update,:add_actor,:remove_actor]
   def index
     # Сортировки про
-    if params.has_key?(:franchise)
+    if params.key?(:franchise)
       @franchise = Franchise.find_by_name(params[:franchise])
       @films = Film.where(franchise: @franchise)
     else
@@ -14,7 +14,7 @@ class FilmsController < ApplicationController
   end
   # /films/1 GET
   def show
-    @favorite_exists = Favorite.where(film: @film, user: current_user) == [] ? false : true
+    @favorite_exists = Favorite.where(film: @film, user: current_user) != []
     @actors = Actor.all - @film.actors
     if @film
     else
@@ -83,7 +83,7 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:name, :actor, :producer, :description, :time_create, {picture: []}, :franchise_id)
+    params.require(:film).permit(:name, :actor, :producer, :description, :time_create, { picture: [] }, :franchise_id)
   end
 
   def find_film

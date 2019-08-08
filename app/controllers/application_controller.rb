@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def favorite_text
-    return @favorite_exists ? "UnFavorite" : "Favorite"
+    @favorite_exists ? "UnFavorite" : "Favorite"
   end
   helper_method :favorite_text
   protected

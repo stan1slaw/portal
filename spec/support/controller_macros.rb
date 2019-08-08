@@ -9,7 +9,7 @@ module ControllerMacros
 
   def login_admin
     before :each do
-      @user = FactoryBot.create(:user,admin: true)
+      @user = FactoryBot.create(:user, admin: true)
       @user.confirm
       sign_in @user
     end
@@ -18,11 +18,9 @@ module ControllerMacros
   def not_found(*actions)
     actions.each do |a|
       it "#{a} renders 404 page when item was not found" do
-        process a,params: {id: 0}
+        process a, params: { id: 0 }
         response.status.should == 404
       end
     end
   end
-
-
 end
