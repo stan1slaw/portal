@@ -1,0 +1,3 @@
+class Franchise < ApplicationRecord
+
+end
