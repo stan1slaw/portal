@@ -7,3 +7,7 @@
   [<%= favorite.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> favorited this film: <%= link_to favorite.film.name, favorite.film %>
   <hr>
 <% end %>
+<% current_user.albums.sort_by{|t| - t.created_at.to_i}.first(3).each do |album| %>
+  [<%= album.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> Create album: <%= link_to album.name, album_path(album) %>
+  <hr>
+<% end %>
