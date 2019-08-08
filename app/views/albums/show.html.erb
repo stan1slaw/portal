@@ -1,0 +1,9 @@
+<div class="text-center">
+<h1>Name: <%= @album.name %></h1>
+  <h1>link to <%= link_to 'creater', user_path(@album.user_id) %></h1>
+<% @album.favorites_id.each do |f| %>
+  <% Film.where(name: f).each do |s| %>
+    <%= link_to f, film_path(s) %> <br>
+    <% end  %>
+<% end  %>
+</div>

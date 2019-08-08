@@ -1,0 +1,12 @@
+<%=  form_for @album do |f| %>
+
+  <% current_user.favorites.each do |item| %>
+
+    <%= f.label :favorites_id, item.film.name %>
+    <%= f.check_box :favorites_id, {multiple: true}, item.film.name, nil %>
+
+    <br/>
+<% end %>
+  <%= f.text_field :name, minlength:"3",maxlength:"30" %>
+  <p><%= f.submit t('film.add'), class:"btn btn-success" %></p>
+<% end %>
