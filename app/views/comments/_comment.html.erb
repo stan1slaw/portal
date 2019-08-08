@@ -6,7 +6,6 @@
     <% if current_user %>
   <%= form_for [comment, Comment.new] do |f| %>
     <%= f.text_area :body, placeholder: "Add a Reply", minlength:"3", maxlength:"300",required:true, class:"form-control" %><br/>
-      <%= f.text_area :user_id, value:current_user.id, style:"display:none" %>
     <%= f.submit t('comments.reply'), class:"btn btn-success"  %>
 
       <% if current_user %>
