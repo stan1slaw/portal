@@ -14,6 +14,7 @@
 <% else %>
 <div class="row">
     <% @films.each do |f|  %>
+    <% cache f do %>
     <div class=" col-md-4 text-center" style="margin-top: 10px">
       <div class="img-thumbnail thumb-box">
         <h3 class="text-center" style="display:inline-block"><%= link_to f.name, film_path(f)%></h3>
@@ -50,5 +51,6 @@
       </div>
     </div>
    <% end %>
+<% end %>
 <% end %>
 </div>

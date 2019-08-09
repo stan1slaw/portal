@@ -11,8 +11,8 @@
 
 <div class="post_one">
   <% @posts.each do |post| %>
+    <% cache post do %>
      <%= render partial: "post", locals: {post:post} %>
-
+    <% end %>
   <% end %>
-
 </div>

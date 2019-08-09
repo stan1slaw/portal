@@ -17548,3 +17548,432 @@ Processing by FilmsController#index as HTML
 Completed 200 OK in 149ms (Views: 136.3ms | ActiveRecord: 11.5ms)
 
 
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:07:59 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.3ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+  [1m[36mFilm Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:12
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:16
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:39
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:46
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:39
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:46
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:39
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:46
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:39
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:46
+  Rendered films/index.html.erb within layouts/application (65.4ms)
+  Rendered films/_login.html.erb (3.0ms)
+Completed 200 OK in 438ms (Views: 415.8ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:09:14 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.2ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+  [1m[36mFilm Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:12
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:16
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/1-20190809092657122493
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:40
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:47
+Cache write: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/1-20190809092657122493
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/2-20190809092657447933
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:40
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:47
+Cache write: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/2-20190809092657447933
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/3-20190809092657504470
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:40
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:47
+Cache write: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/3-20190809092657504470
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/4-20190809092657535924
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:40
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:47
+Cache write: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/4-20190809092657535924
+  Rendered films/index.html.erb within layouts/application (179.6ms)
+  Rendered films/_login.html.erb (1.8ms)
+Completed 200 OK in 306ms (Views: 289.3ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:09:21 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.2ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+  [1m[36mFilm Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:12
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:16
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/1-20190809092657122493
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/2-20190809092657447933
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/3-20190809092657504470
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/4-20190809092657535924
+  Rendered films/index.html.erb within layouts/application (40.4ms)
+  Rendered films/_login.html.erb (1.5ms)
+Completed 200 OK in 155ms (Views: 144.3ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:10:11 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.2ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/1-20190809092656994532
+Cache write: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/1-20190809092656994532
+  [1m[36mFilm Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:13
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:17
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/2-20190809092657009899
+Cache write: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/2-20190809092657009899
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/3-20190809092657056712
+Cache write: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/3-20190809092657056712
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  Rendered films/index.html.erb within layouts/application (103.2ms)
+  Rendered films/_login.html.erb (1.1ms)
+Completed 200 OK in 254ms (Views: 233.9ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:10:15 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.2ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/1-20190809092656994532
+  [1m[36mFilm Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:13
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:17
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/2-20190809092657009899
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/3-20190809092657056712
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  Rendered films/index.html.erb within layouts/application (63.4ms)
+  Rendered films/_login.html.erb (1.2ms)
+Completed 200 OK in 172ms (Views: 159.3ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:10:24 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.2ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/1-20190809092656994532
+  [1m[36mFilm Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:13
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:17
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/2-20190809092657009899
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+Cache read: views/films/index:7f63dcf63bdfe177946b7f78f0f325de/franchises/3-20190809092657056712
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", true]]
+  ↳ app/views/films/index.html.erb:41
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 4], ["votable_type", "Film"], ["vote_flag", false]]
+  ↳ app/views/films/index.html.erb:48
+  Rendered films/index.html.erb within layouts/application (61.8ms)
+  Rendered films/_login.html.erb (1.2ms)
+Completed 200 OK in 192ms (Views: 180.1ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/films?locale=en" for ::1 at 2019-08-09 13:10:27 +0300
+Processing by FilmsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering films/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:2
+  [1m[36mFranchise Load (0.2ms)[0m  [1m[34mSELECT "franchises".* FROM "franchises" WHERE "franchises"."display_in_navbar" = $1[0m  [["display_in_navbar", true]]
+  ↳ app/views/films/index.html.erb:8
+  [1m[36mFilm Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "films" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/films/index.html.erb:12
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" ORDER BY cached_votes_up DESC[0m
+  ↳ app/views/films/index.html.erb:16
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/1-20190809092657122493
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/2-20190809092657447933
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/3-20190809092657504470
+Cache read: views/films/index:22fb20c02e68a8bbc46511b39d737758/films/4-20190809092657535924
+  Rendered films/index.html.erb within layouts/application (44.5ms)
+  Rendered films/_login.html.erb (1.7ms)
+Completed 200 OK in 170ms (Views: 160.1ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/posts?locale=en" for ::1 at 2019-08-09 13:10:35 +0300
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (13.2ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (1.7ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (1.5ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (1.4ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (1.6ms)
+  Rendered posts/index.html.erb within layouts/application (49.9ms)
+  Rendered films/_login.html.erb (1.5ms)
+Completed 200 OK in 137ms (Views: 123.9ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/posts?locale=en" for ::1 at 2019-08-09 13:11:28 +0300
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:13
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/1-20190809092657631242
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (13.7ms)
+Cache write: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/1-20190809092657631242
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/2-20190809092657649227
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (4.0ms)
+Cache write: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/2-20190809092657649227
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/3-20190809092657668126
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (2.9ms)
+Cache write: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/3-20190809092657668126
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/4-20190809092657697363
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (5.4ms)
+Cache write: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/4-20190809092657697363
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/5-20190809092658029066
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/helpers/tags_helper.rb:5
+  Rendered posts/_post.html.erb (7.0ms)
+Cache write: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/5-20190809092658029066
+  Rendered posts/index.html.erb within layouts/application (110.7ms)
+  Rendered films/_login.html.erb (1.1ms)
+Completed 200 OK in 215ms (Views: 201.7ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/posts?locale=en" for ::1 at 2019-08-09 13:11:30 +0300
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:13
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/1-20190809092657631242
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/2-20190809092657649227
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/3-20190809092657668126
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/4-20190809092657697363
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/5-20190809092658029066
+  Rendered posts/index.html.erb within layouts/application (28.4ms)
+  Rendered films/_login.html.erb (1.1ms)
+Completed 200 OK in 148ms (Views: 141.2ms | ActiveRecord: 5.5ms)
+
+
+Cache read: posts
+Cache read: post
+Cache read: film
+Cache read: f
+Started GET "/posts?locale=en" for ::1 at 2019-08-09 13:12:17 +0300
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:13
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/1-20190809092657631242
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/2-20190809092657649227
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/3-20190809092657668126
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/4-20190809092657697363
+Cache read: views/posts/index:386ff29f94b7699aa1f60c9708ea86dc/posts/5-20190809092658029066
+  Rendered posts/index.html.erb within layouts/application (28.9ms)
+  Rendered films/_login.html.erb (1.1ms)
+Completed 200 OK in 148ms (Views: 140.1ms | ActiveRecord: 5.7ms)
+
+
