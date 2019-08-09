@@ -8,7 +8,7 @@
       <%= link_to favorite_text, favorites_update_path(film: @film), id:"favorite" %>
       </small>
     </h1>
-  <p>Franchise: <%= @film.franchise.name %></p>
+  <p>Franchise: <%= @film.franchise_name %></p>
   <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flocalhost%3A3000%2Ffilms%2F2&width=50&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=2449518141772829"
           width="300" height="80"
           style="border:none;overflow:hidden"
@@ -30,6 +30,8 @@
   </div>
   <hr>
     <h2>Actors</h2>
+  <% cache "actors" do %>
+
 <div class="boxsize">
       <% @film.actors.each do |actor| %>
       <div class="actorstyle">
@@ -42,6 +44,7 @@
 
         <% end %>
       </div>
+  <% end %>
   <% end %>
 
 

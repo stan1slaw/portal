@@ -15,4 +15,10 @@ class Film < ApplicationRecord
   has_many :reviews
   belongs_to :franchise
 
+  def franchise_name
+    Rails.cache.fetch([:franchise, franchise_id, :name], expires_in: 1.week) do
+      franchise.name
+    end
+  end
+
 end

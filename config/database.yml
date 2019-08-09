@@ -1,14 +1,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
-  username: postgres
-  password:
+  host: ''
   pool: 5
 
 development:
   <<: *default
-  database: myapp_development
+  database: mydb
 
 
 test:

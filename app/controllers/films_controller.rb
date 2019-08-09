@@ -6,6 +6,7 @@ class FilmsController < ApplicationController
     if params.key?(:franchise)
       @franchise = Franchise.find_by_name(params[:franchise])
       @films = Film.where(franchise: @franchise)
+      expires_in 1.hour, public: true
     else
       @films = Film.all.order("cached_votes_up DESC")
     end

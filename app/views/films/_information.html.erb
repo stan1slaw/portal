@@ -1,4 +1,4 @@
-
+<% cache current_user do %>
 <p><%= t('information.username') %>: <%= current_user.username %></p>
 <p><%= t('information.status') %>:
   <% if current_user.try(:admin?) %>
@@ -16,4 +16,5 @@
 <p><%= t('information.firstname') %>: <%= current_user.first_name %></p>
 <p><%= t('information.lastname') %>: <%= current_user.last_name %></p>
 <p><%= t('information.birthday') %>: <%= current_user.birthday %></p>
+<% end %>
 
