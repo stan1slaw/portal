@@ -13,7 +13,7 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable,
-         :confirmable,
+        :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
   def self.new_with_session(params, session)

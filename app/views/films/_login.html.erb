@@ -52,10 +52,23 @@
 
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search"  aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= t('navbar.search') %></button>
-    </form>
+
+    <div class="form-inline my-2 my-lg-0">
+      <%= form_tag(films_path, method: :get, class: "form-inline", role: 'search') do %>
+        <div class="input-group">
+          <%= text_field_tag :term,
+                             params[:term],
+                             id: 'films_search',
+                             autocomplete: :off,
+                             placeholder: 'Search',
+                             class: 'form-control' %>
+          <div class="input-group-btn search-panel">
+            <%= link_to 'Clear', films_path, class: "btn btn-warning" %>
+            <%= submit_tag 'Search', name: nil, class: "btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </nav>
 

@@ -12,6 +12,7 @@ pickle-email-*.html
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/tmp
 !/log/.keep
 !/tmp/.keep
 .DS_Store
@@ -141,3 +142,10 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

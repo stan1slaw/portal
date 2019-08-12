@@ -1,0 +1,3 @@
+DailyDigestMailer#digest_email
+
+Hi, find me in app/views/daily_digest_mailer/digest_email

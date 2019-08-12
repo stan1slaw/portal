@@ -2,16 +2,29 @@ class FilmsController < ApplicationController
   before_action :find_film,      only: [:show,:edit,:destroy,:update, :upvote, :downvote]
   before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update,:add_actor,:remove_actor]
   def index
-    # Сортировки про
+    search = params[:term].present? ? params[:term] : nil
+    @films = if search
+               Film.search(search)
+             else
+               @films = Film.all.order("cached_votes_up DESC")
+             end
     if params.key?(:franchise)
-      @franchise = Franchise.find_by_name(params[:franchise])
-      @films = Film.where(franchise: @franchise)
-    else
-      @films = Film.all.order("cached_votes_up DESC")
-    end
-
-
+    @franchise = Franchise.find_by_name(params[:franchise])
+    @films = Film.where(franchise: @franchise)
+    expires_in 1.hour, public: true
+      end
   end
+
+  def autocomplete
+    render json: Film.search(params[:query], {
+        fields:['name','time_create'],
+        match: :word_start,
+        limit: 10,
+        load: false,
+        misspellings: {below: 5}
+    }).map(&:name)
+  end
+
   # /films/1 GET
   def show
     @favorite_exists = Favorite.where(film: @film, user: current_user) != []
