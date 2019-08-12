@@ -64,4 +64,8 @@ Rails.application.routes.draw do
   end
 
   resources :password_resets
+
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

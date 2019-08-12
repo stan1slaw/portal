@@ -26,6 +26,9 @@ gem 'sass-rails'
 gem 'chosen-rails'
 gem 'filterrific'
 gem 'simple_form'
+gem 'sidekiq'
+gem 'sidetiq'
+gem 'sinatra'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -38,7 +41,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n', '~> 5.1'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+ gem 'redis'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.13'
 gem "fog-aws"
