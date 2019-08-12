@@ -1,4 +1,5 @@
 <h1 class="text-center"><%= t('film.all') %></h1>
+
 <% if current_user.try(:admin?) %>
  <p class="text-center">  <%= link_to t('film.add'), new_film_path, class:"btn btn-success" %> </p>
 
@@ -9,11 +10,12 @@
     <%= link_to f.name+"|", films_path(franchise: f.name) %>
   <% end %>
 </p>
-<% if @films.empty?  %>
+<% if @films.nil?  %>
   <p class="text-center"><%= t('film.zero') %></p>
 <% else %>
 <div class="row">
     <% @films.each do |f|  %>
+    <% cache f do %>
     <div class=" col-md-4 text-center" style="margin-top: 10px">
       <div class="img-thumbnail thumb-box">
         <h3 class="text-center" style="display:inline-block"><%= link_to f.name, film_path(f)%></h3>
@@ -49,6 +51,7 @@
         </div>
       </div>
     </div>
-   <% end %>
+    <% end %>
+  <% end %>
 <% end %>
 </div>

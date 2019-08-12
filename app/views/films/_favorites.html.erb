@@ -2,6 +2,7 @@
 
 
 <% current_user.favorites.each do |favorite| %>
+  <% cache favorite do %>
   <%= link_to favorite.film.name, favorite.film %><br>
 <% end %>
 <hr>
@@ -9,5 +10,6 @@
 <% Album.where(user_id: current_user).each do |s| %>
 
   <%= link_to s.name, album_path(s) %><br/>
-<% end %>
+  <% end %>
+  <% end %>
 <hr>

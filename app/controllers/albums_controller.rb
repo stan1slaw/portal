@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
     @album = Album.create(album_params)
     @album.user_id = current_user.id if current_user
     if @album.save
-      redirect_to user_path, notice: "Album was created!"
+      redirect_to user_path(@album.user_id), notice: "Album was created!"
     else
       render :new, notice: "Album was created!"
     end
