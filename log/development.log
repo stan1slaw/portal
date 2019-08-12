@@ -17873,3 +17873,814 @@ Cache read: views/films/index:86af11869b89634911259c9440ba712d/films/3-201908090
 Completed 200 OK in 170ms (Views: 160.1ms | ActiveRecord: 8.3ms)
 
 
+  [1m[35m (35.0ms)[0m  [1m[35mCREATE DATABASE "mydb" ENCODING = 'unicode'[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (81.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35mSQL (42.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (240.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (231.3ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (99.4ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (47.2ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (140.2ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (92.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors" CASCADE[0m
+  ↳ db/schema.rb:32
+  [1m[35m (215.1ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "dataroz" date, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avtor" character varying)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (15.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors_films" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (373.4ms)[0m  [1m[35mCREATE TABLE "actors_films" ("id" bigserial primary key, "actor_id" bigint, "film_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (46.6ms)[0m  [1m[35mCREATE  INDEX  "index_actors_films_on_actor_id" ON "actors_films"  ("actor_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (48.9ms)[0m  [1m[35mCREATE  INDEX  "index_actors_films_on_film_id" ON "actors_films"  ("film_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (17.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "admin_users" CASCADE[0m
+  ↳ db/schema.rb:50
+  [1m[35m (102.2ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (66.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")[0m
+  ↳ db/schema.rb:50
+  [1m[35m (105.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  ↳ db/schema.rb:50
+  [1m[35m (99.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  ↳ db/schema.rb:62
+  [1m[35m (161.9ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "name" character varying, "favorites_id" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (57.3ms)[0m  [1m[35mCREATE  INDEX  "index_albums_on_user_id" ON "albums"  ("user_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (72.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:71
+  [1m[35m (528.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" text, "commentable_type" character varying, "commentable_id" bigint, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:71
+  [1m[35m (58.5ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commentable_type_and_commentable_id" ON "comments"  ("commentable_type", "commentable_id")[0m
+  ↳ db/schema.rb:71
+  [1m[35m (16.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "favorites" CASCADE[0m
+  ↳ db/schema.rb:81
+  [1m[35m (60.8ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "film_id" bigint, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:81
+  [1m[35m (57.2ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_film_id" ON "favorites"  ("film_id")[0m
+  ↳ db/schema.rb:81
+  [1m[35m (58.7ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  ↳ db/schema.rb:81
+  [1m[35m (26.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "films" CASCADE[0m
+  ↳ db/schema.rb:90
+  [1m[35m (195.0ms)[0m  [1m[35mCREATE TABLE "films" ("id" bigserial primary key, "name" character varying, "producer" text, "time_create" date, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "picture" json, "cached_votes_total" integer DEFAULT 0, "cached_votes_score" integer DEFAULT 0, "cached_votes_up" integer DEFAULT 0, "cached_votes_down" integer DEFAULT 0, "cached_weighted_score" integer DEFAULT 0, "cached_weighted_total" integer DEFAULT 0, "cached_weighted_average" float DEFAULT 0.0, "franchise_id" bigint)[0m
+  ↳ db/schema.rb:90
+  [1m[35m (122.9ms)[0m  [1m[35mCREATE  INDEX  "index_films_on_franchise_id" ON "films"  ("franchise_id")[0m
+  ↳ db/schema.rb:90
+  [1m[35m (16.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "franchises" CASCADE[0m
+  ↳ db/schema.rb:109
+  [1m[35m (201.5ms)[0m  [1m[35mCREATE TABLE "franchises" ("id" bigserial primary key, "name" character varying, "description" text, "display_in_navbar" boolean DEFAULT TRUE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:109
+  [1m[35m (16.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:117
+  [1m[35m (173.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatars" json)[0m
+  ↳ db/schema.rb:117
+  [1m[35m (59.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:125
+  [1m[35m (136.0ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "user_id" integer, "body" text, "rating" integer, "film_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:125
+  [1m[35m (69.3ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_film_id" ON "reviews"  ("film_id")[0m
+  ↳ db/schema.rb:125
+  [1m[35m (16.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  ↳ db/schema.rb:135
+  [1m[35m (159.8ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" bigserial primary key, "tag_id" bigint, "post_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:135
+  [1m[35m (127.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_post_id" ON "taggings"  ("post_id")[0m
+  ↳ db/schema.rb:135
+  [1m[35m (70.1ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tag_id" ON "taggings"  ("tag_id")[0m
+  ↳ db/schema.rb:135
+  [1m[35m (17.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  ↳ db/schema.rb:144
+  [1m[35m (145.1ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:144
+  [1m[35m (16.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:150
+  [1m[35m (157.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "first_name" character varying, "last_name" character varying, "username" character varying, "birthday" date, "about" text, "avatar" character varying, "privat" boolean DEFAULT FALSE, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "provider" character varying, "uid" character varying, "name" character varying, "image" text, "admin" boolean, "critic" boolean, "password_reset_token" character varying, "password_reset_sent_at" timestamp)[0m
+  ↳ db/schema.rb:150
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:150
+  [1m[35m (75.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/schema.rb:150
+  [1m[35m (22.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "votes" CASCADE[0m
+  ↳ db/schema.rb:181
+  [1m[35m (217.8ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial NOT NULL PRIMARY KEY, "votable_type" character varying, "votable_id" integer, "voter_type" character varying, "voter_id" integer, "vote_flag" boolean, "vote_scope" character varying, "vote_weight" integer, "created_at" timestamp, "updated_at" timestamp)[0m
+  ↳ db/schema.rb:181
+  [1m[35m (417.2ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes"  ("votable_id", "votable_type", "vote_scope")[0m
+  ↳ db/schema.rb:181
+  [1m[35m (94.9ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes"  ("voter_id", "voter_type", "vote_scope")[0m
+  ↳ db/schema.rb:181
+  [1m[35m (42.3ms)[0m  [1m[35mALTER TABLE "actors_films" ADD CONSTRAINT "fk_rails_f81b7fdbd9"
+FOREIGN KEY ("actor_id")
+  REFERENCES "actors" ("id")
+[0m
+  ↳ db/schema.rb:195
+  [1m[35m (20.8ms)[0m  [1m[35mALTER TABLE "actors_films" ADD CONSTRAINT "fk_rails_9c4726f09f"
+FOREIGN KEY ("film_id")
+  REFERENCES "films" ("id")
+[0m
+  ↳ db/schema.rb:196
+  [1m[35m (75.9ms)[0m  [1m[35mALTER TABLE "albums" ADD CONSTRAINT "fk_rails_964016e0e8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:197
+  [1m[35m (21.3ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_fafb2f0de3"
+FOREIGN KEY ("film_id")
+  REFERENCES "films" ("id")
+[0m
+  ↳ db/schema.rb:198
+  [1m[35m (21.6ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:199
+  [1m[35m (21.2ms)[0m  [1m[35mALTER TABLE "films" ADD CONSTRAINT "fk_rails_81d8834994"
+FOREIGN KEY ("franchise_id")
+  REFERENCES "franchises" ("id")
+[0m
+  ↳ db/schema.rb:200
+  [1m[35m (38.3ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_f0b9babe94"
+FOREIGN KEY ("film_id")
+  REFERENCES "films" ("id")
+[0m
+  ↳ db/schema.rb:201
+  [1m[35m (21.2ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_2c662e858e"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+[0m
+  ↳ db/schema.rb:202
+  [1m[35m (21.8ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  ↳ db/schema.rb:203
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35mSQL (7.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (522.3ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (138.3ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (103.6ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (87.3ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors" CASCADE[0m
+  ↳ db/schema.rb:32
+  [1m[35m (195.8ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "dataroz" date, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avtor" character varying)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors_films" CASCADE[0m
+  ↳ db/schema.rb:41
+  [1m[35m (98.1ms)[0m  [1m[35mCREATE TABLE "actors_films" ("id" bigserial primary key, "actor_id" bigint, "film_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (96.3ms)[0m  [1m[35mCREATE  INDEX  "index_actors_films_on_actor_id" ON "actors_films"  ("actor_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (101.5ms)[0m  [1m[35mCREATE  INDEX  "index_actors_films_on_film_id" ON "actors_films"  ("film_id")[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "admin_users" CASCADE[0m
+  ↳ db/schema.rb:50
+  [1m[35m (204.1ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:50
+  [1m[35m (96.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")[0m
+  ↳ db/schema.rb:50
+  [1m[35m (112.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  ↳ db/schema.rb:50
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  ↳ db/schema.rb:62
+  [1m[35m (222.9ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "name" character varying, "favorites_id" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (520.7ms)[0m  [1m[35mCREATE  INDEX  "index_albums_on_user_id" ON "albums"  ("user_id")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:71
+  [1m[35m (119.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" text, "commentable_type" character varying, "commentable_id" bigint, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:71
+  [1m[35m (129.3ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commentable_type_and_commentable_id" ON "comments"  ("commentable_type", "commentable_id")[0m
+  ↳ db/schema.rb:71
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "favorites" CASCADE[0m
+  ↳ db/schema.rb:81
+  [1m[35m (65.5ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "film_id" bigint, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:81
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_film_id" ON "favorites"  ("film_id")[0m
+  ↳ db/schema.rb:81
+  [1m[35m (84.2ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  ↳ db/schema.rb:81
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "films" CASCADE[0m
+  ↳ db/schema.rb:90
+  [1m[35m (209.7ms)[0m  [1m[35mCREATE TABLE "films" ("id" bigserial primary key, "name" character varying, "producer" text, "time_create" date, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "picture" json, "cached_votes_total" integer DEFAULT 0, "cached_votes_score" integer DEFAULT 0, "cached_votes_up" integer DEFAULT 0, "cached_votes_down" integer DEFAULT 0, "cached_weighted_score" integer DEFAULT 0, "cached_weighted_total" integer DEFAULT 0, "cached_weighted_average" float DEFAULT 0.0, "franchise_id" bigint)[0m
+  ↳ db/schema.rb:90
+  [1m[35m (75.5ms)[0m  [1m[35mCREATE  INDEX  "index_films_on_franchise_id" ON "films"  ("franchise_id")[0m
+  ↳ db/schema.rb:90
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "franchises" CASCADE[0m
+  ↳ db/schema.rb:109
+  [1m[35m (205.6ms)[0m  [1m[35mCREATE TABLE "franchises" ("id" bigserial primary key, "name" character varying, "description" text, "display_in_navbar" boolean DEFAULT TRUE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:109
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:117
+  [1m[35m (149.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatars" json)[0m
+  ↳ db/schema.rb:117
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  ↳ db/schema.rb:125
+  [1m[35m (144.6ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "user_id" integer, "body" text, "rating" integer, "film_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:125
+  [1m[35m (102.5ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_film_id" ON "reviews"  ("film_id")[0m
+  ↳ db/schema.rb:125
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  ↳ db/schema.rb:135
+  [1m[35m (142.1ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" bigserial primary key, "tag_id" bigint, "post_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:135
+  [1m[35m (75.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_post_id" ON "taggings"  ("post_id")[0m
+  ↳ db/schema.rb:135
+  [1m[35m (75.2ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tag_id" ON "taggings"  ("tag_id")[0m
+  ↳ db/schema.rb:135
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  ↳ db/schema.rb:144
+  [1m[35m (207.9ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:144
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:150
+  [1m[35m (229.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "first_name" character varying, "last_name" character varying, "username" character varying, "birthday" date, "about" text, "avatar" character varying, "privat" boolean DEFAULT FALSE, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "provider" character varying, "uid" character varying, "name" character varying, "image" text, "admin" boolean, "critic" boolean, "password_reset_token" character varying, "password_reset_sent_at" timestamp)[0m
+  ↳ db/schema.rb:150
+  [1m[35m (81.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:150
+  [1m[35m (427.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/schema.rb:150
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "votes" CASCADE[0m
+  ↳ db/schema.rb:181
+  [1m[35m (184.1ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial NOT NULL PRIMARY KEY, "votable_type" character varying, "votable_id" integer, "voter_type" character varying, "voter_id" integer, "vote_flag" boolean, "vote_scope" character varying, "vote_weight" integer, "created_at" timestamp, "updated_at" timestamp)[0m
+  ↳ db/schema.rb:181
+  [1m[35m (86.8ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes"  ("votable_id", "votable_type", "vote_scope")[0m
+  ↳ db/schema.rb:181
+  [1m[35m (96.6ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes"  ("voter_id", "voter_type", "vote_scope")[0m
+  ↳ db/schema.rb:181
+  [1m[35m (30.9ms)[0m  [1m[35mALTER TABLE "actors_films" ADD CONSTRAINT "fk_rails_f81b7fdbd9"
+FOREIGN KEY ("actor_id")
+  REFERENCES "actors" ("id")
+[0m
+  ↳ db/schema.rb:195
+  [1m[35m (21.6ms)[0m  [1m[35mALTER TABLE "actors_films" ADD CONSTRAINT "fk_rails_9c4726f09f"
+FOREIGN KEY ("film_id")
+  REFERENCES "films" ("id")
+[0m
+  ↳ db/schema.rb:196
+  [1m[35m (21.5ms)[0m  [1m[35mALTER TABLE "albums" ADD CONSTRAINT "fk_rails_964016e0e8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:197
+  [1m[35m (38.1ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_fafb2f0de3"
+FOREIGN KEY ("film_id")
+  REFERENCES "films" ("id")
+[0m
+  ↳ db/schema.rb:198
+  [1m[35m (21.4ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:199
+  [1m[35m (76.1ms)[0m  [1m[35mALTER TABLE "films" ADD CONSTRAINT "fk_rails_81d8834994"
+FOREIGN KEY ("franchise_id")
+  REFERENCES "franchises" ("id")
+[0m
+  ↳ db/schema.rb:200
+  [1m[35m (21.2ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_f0b9babe94"
+FOREIGN KEY ("film_id")
+  REFERENCES "films" ("id")
+[0m
+  ↳ db/schema.rb:201
+  [1m[35m (21.3ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_2c662e858e"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+[0m
+  ↳ db/schema.rb:202
+  [1m[35m (21.2ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  ↳ db/schema.rb:203
+  [1m[35m (240.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (18.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190811094631)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (22.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190730101908),
+(20190718103126),
+(20190730100645),
+(20190808134747),
+(20190712082933),
+(20190730123733),
+(20190718102801),
+(20190718102931),
+(20190718064727),
+(20190710134238),
+(20190715103636),
+(20190711092943),
+(20190712091230),
+(20190730121019),
+(20190731105231),
+(20190731084435),
+(20190808133041),
+(20190715100028),
+(20190731084438),
+(20190806090730),
+(20190723112701),
+(20190710083757),
+(20190731125858),
+(20190726110519),
+(20190724091851),
+(20190808133951),
+(20190719113302),
+(20190801073653),
+(20190731100804);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (185.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-12 11:09:36.401209"], ["updated_at", "2019-08-12 11:09:36.401209"]]
+  ↳ db/schema.rb:13
+  [1m[35m (19.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-08-12 11:09:36.423932"], ["key", "environment"]]
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (19.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "adminS"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "confirmation_token", "confirmed_at", "confirmation_sent_at", "admin") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "admin@gmail.com"], ["encrypted_password", "$2a$11$ZXyJDE3zFL21s5onv7PD6e9Zqag3gHm9v78RbSs5nmE9qsuHn3Y2y"], ["created_at", "2019-08-12 11:09:36.763313"], ["updated_at", "2019-08-12 11:09:36.763313"], ["username", "adminS"], ["confirmation_token", "qFQstxvZZY8x8aWm5_bX"], ["confirmed_at", "2019-07-29 10:45:57"], ["confirmation_sent_at", "2019-07-29 10:45:51"], ["admin", true]]
+  ↳ db/seeds.rb:1
+  [1m[35m (21.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mFranchise Create (0.4ms)[0m  [1m[32mINSERT INTO "franchises" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Star Wars"], ["description", "about space\r\n"], ["created_at", "2019-08-12 11:09:36.795627"], ["updated_at", "2019-08-12 11:09:36.795627"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (23.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mFranchise Create (1.0ms)[0m  [1m[32mINSERT INTO "franchises" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Harry Potter"], ["description", "about wizards"], ["created_at", "2019-08-12 11:09:36.822844"], ["updated_at", "2019-08-12 11:09:36.822844"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mFranchise Create (0.7ms)[0m  [1m[32mINSERT INTO "franchises" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "John Wick"], ["description", "about John"], ["created_at", "2019-08-12 11:09:36.846106"], ["updated_at", "2019-08-12 11:09:36.846106"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mFranchise Load (1.2ms)[0m  [1m[34mSELECT  "franchises".* FROM "franchises" WHERE "franchises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mFilm Create (1.9ms)[0m  [1m[32mINSERT INTO "films" ("name", "producer", "time_create", "description", "created_at", "updated_at", "picture", "cached_votes_total", "cached_votes_score", "cached_votes_up", "cached_weighted_score", "cached_weighted_total", "cached_weighted_average", "franchise_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Star Wars 7"], ["producer", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["time_create", "2015-12-17"], ["description", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["created_at", "2019-08-12 11:09:37.045945"], ["updated_at", "2019-08-12 11:09:37.045945"], ["picture", "[\"star_wars.jpg\",\"star1.jpg\",\"star2.jpg\",\"star3.jpeg\"]"], ["cached_votes_total", 1], ["cached_votes_score", 1], ["cached_votes_up", 1], ["cached_weighted_score", 1], ["cached_weighted_total", 1], ["cached_weighted_average", 1.0], ["franchise_id", 1]]
+  ↳ db/seeds.rb:32
+  [1m[35m (45.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[33mFilm Store (1241.2ms)[0m  {"id":1}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mFranchise Load (0.7ms)[0m  [1m[34mSELECT  "franchises".* FROM "franchises" WHERE "franchises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mFilm Create (1.6ms)[0m  [1m[32mINSERT INTO "films" ("name", "producer", "time_create", "description", "created_at", "updated_at", "picture", "cached_votes_total", "cached_votes_score", "cached_votes_up", "cached_weighted_score", "cached_weighted_total", "cached_weighted_average", "franchise_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Roque One"], ["producer", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["time_create", "2016-12-10"], ["description", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["created_at", "2019-08-12 11:09:38.438695"], ["updated_at", "2019-08-12 11:09:38.438695"], ["picture", "[\"roque.jpeg\",\"roque1.jpeg\",\"roque2.jpeg\",\"roque3.jpeg\"]"], ["cached_votes_total", 1], ["cached_votes_score", 1], ["cached_votes_up", 1], ["cached_weighted_score", 1], ["cached_weighted_total", 1], ["cached_weighted_average", 1.0], ["franchise_id", 1]]
+  ↳ db/seeds.rb:32
+  [1m[35m (44.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[33mFilm Store (147.7ms)[0m  {"id":2}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mFranchise Load (0.6ms)[0m  [1m[34mSELECT  "franchises".* FROM "franchises" WHERE "franchises"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mFilm Create (1.2ms)[0m  [1m[32mINSERT INTO "films" ("name", "producer", "time_create", "description", "created_at", "updated_at", "picture", "cached_votes_total", "cached_votes_score", "cached_votes_down", "cached_weighted_score", "cached_weighted_total", "cached_weighted_average", "franchise_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "John Wick 3"], ["producer", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["time_create", "2019-05-09"], ["description", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["created_at", "2019-08-12 11:09:38.748045"], ["updated_at", "2019-08-12 11:09:38.748045"], ["picture", "[\"john_wick.jpeg\",\"john1.jpg\",\"john2.jpeg\",\"john3.jpeg\"]"], ["cached_votes_total", 1], ["cached_votes_score", -1], ["cached_votes_down", 1], ["cached_weighted_score", -1], ["cached_weighted_total", 1], ["cached_weighted_average", -1.0], ["franchise_id", 3]]
+  ↳ db/seeds.rb:32
+  [1m[35m (51.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[33mFilm Store (202.3ms)[0m  {"id":3}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mFranchise Load (0.3ms)[0m  [1m[34mSELECT  "franchises".* FROM "franchises" WHERE "franchises"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mFilm Create (0.4ms)[0m  [1m[32mINSERT INTO "films" ("name", "producer", "time_create", "description", "created_at", "updated_at", "picture", "cached_votes_total", "cached_votes_score", "cached_votes_down", "cached_weighted_score", "cached_weighted_total", "cached_weighted_average", "franchise_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Harry Potter and deathly hallows part 2"], ["producer", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["time_create", "2012-05-09"], ["description", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. AliquamLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam"], ["created_at", "2019-08-12 11:09:39.063039"], ["updated_at", "2019-08-12 11:09:39.063039"], ["picture", "[\"harry_potter.jpg\",\"harry1.jpeg\",\"harry2.jpeg\",\"harry3.jpeg\"]"], ["cached_votes_total", 1], ["cached_votes_score", -1], ["cached_votes_down", 1], ["cached_weighted_score", -1], ["cached_weighted_total", 1], ["cached_weighted_average", -1.0], ["franchise_id", 2]]
+  ↳ db/seeds.rb:32
+  [1m[35m (50.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[33mFilm Store (143.1ms)[0m  {"id":4}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mActor Create (1.1ms)[0m  [1m[32mINSERT INTO "actors" ("name", "dataroz", "description", "created_at", "updated_at", "avtor") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Keanu Reeves"], ["dataroz", "1964-09-02"], ["description", "Keanu Charles Reeves is a Canadian actor and musician. He gained fame for his starring roles in several blockbuster films, including comedies from the Bill and Ted franchise; action thrillers Point ..."], ["created_at", "2019-08-12 11:09:39.288163"], ["updated_at", "2019-08-12 11:09:39.288163"], ["avtor", "john_wick.jpeg"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("name", "dataroz", "description", "created_at", "updated_at", "avtor") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Boyega"], ["dataroz", "1992-03-17"], ["description", "John Adedayo B. Adegboyega, known professionally as John Boyega, is an English actor known for playing Finn in the 2015 film Star Wars: The Force Awakens and its 2017 sequel Star Wars: The Last Jedi, respectively the seventh and eighth films of the Star Wars series."], ["created_at", "2019-08-12 11:09:39.356584"], ["updated_at", "2019-08-12 11:09:39.356584"], ["avtor", "john_boeyga.jpeg"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (50.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mActor Create (0.4ms)[0m  [1m[32mINSERT INTO "actors" ("name", "dataroz", "description", "created_at", "updated_at", "avtor") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Daisy Ridley"], ["dataroz", "1992-08-10"], ["description", "Daisy Jazz Isobel Ridley is an English actress. Born in Westminster and brought up in Maida Vale, Ridley trained in drama at the Tring Park School for the Performing Arts. She began acting in minor guest roles on television and in short films, making her film debut in the independent horror film Scrawl."], ["created_at", "2019-08-12 11:09:39.479101"], ["updated_at", "2019-08-12 11:09:39.479101"], ["avtor", "film1.jpeg"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (50.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "avatars") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Star Wars 7 "], ["content", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae, consequatur dicta dolorem doloribus minima sapiente suscipit tempora unde vero! Deleniti eum nostrum omnis sequi sint. Et illo praesentium quod."], ["created_at", "2019-08-12 11:09:39.572888"], ["updated_at", "2019-08-12 11:09:39.572888"], ["avatars", "[\"star_wars.jpg\"]"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (62.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "avatars") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "John Wick? Cool?"], ["content", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. \r\nLorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type\r\n specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "], ["created_at", "2019-08-12 11:09:39.681700"], ["updated_at", "2019-08-12 11:09:39.681700"], ["avatars", "[\"john_wick.jpeg\"]"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (85.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "avatars") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Roque One, all true about actors and money"], ["content", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."], ["created_at", "2019-08-12 11:09:39.805568"], ["updated_at", "2019-08-12 11:09:39.805568"], ["avatars", "[\"roque.jpeg\"]"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (55.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "avatars") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Harry Potter after 15 years. What just happened?"], ["content", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."], ["created_at", "2019-08-12 11:09:39.869995"], ["updated_at", "2019-08-12 11:09:39.869995"], ["avatars", "[\"harry_potter.jpg\"]"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (41.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "avatars") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Hello from 2000, this is lego!!!!!!"], ["content", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."], ["created_at", "2019-08-12 11:09:39.974155"], ["updated_at", "2019-08-12 11:09:39.974155"], ["avatars", "[\"lego_first.jpeg\",\"lego_second.png\"]"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (54.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Film"], ["created_at", "2019-08-12 11:09:40.043888"], ["updated_at", "2019-08-12 11:09:40.043888"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (80.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Actor"], ["created_at", "2019-08-12 11:09:40.126748"], ["updated_at", "2019-08-12 11:09:40.126748"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (505.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mTag Create (0.7ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Disappointment"], ["created_at", "2019-08-12 11:09:40.636247"], ["updated_at", "2019-08-12 11:09:40.636247"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (91.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mTag Create (0.7ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Opinion"], ["created_at", "2019-08-12 11:09:40.732195"], ["updated_at", "2019-08-12 11:09:40.732195"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (52.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (1.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 2], ["post_id", 1], ["created_at", "2019-08-12 11:09:40.819754"], ["updated_at", "2019-08-12 11:09:40.819754"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (31.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (1.0ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 3], ["post_id", 1], ["created_at", "2019-08-12 11:09:40.861747"], ["updated_at", "2019-08-12 11:09:40.861747"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (48.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (1.1ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 1], ["post_id", 1], ["created_at", "2019-08-12 11:09:40.918143"], ["updated_at", "2019-08-12 11:09:40.918143"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (85.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (1.0ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 4], ["post_id", 1], ["created_at", "2019-08-12 11:09:41.012368"], ["updated_at", "2019-08-12 11:09:41.012368"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (48.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (1.0ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 1], ["post_id", 2], ["created_at", "2019-08-12 11:09:41.068981"], ["updated_at", "2019-08-12 11:09:41.068981"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (75.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (1.0ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 4], ["post_id", 2], ["created_at", "2019-08-12 11:09:41.153367"], ["updated_at", "2019-08-12 11:09:41.153367"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.9ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 2], ["post_id", 3], ["created_at", "2019-08-12 11:09:41.208592"], ["updated_at", "2019-08-12 11:09:41.208592"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (48.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.9ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 3], ["post_id", 3], ["created_at", "2019-08-12 11:09:41.265816"], ["updated_at", "2019-08-12 11:09:41.265816"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (88.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 1], ["post_id", 3], ["created_at", "2019-08-12 11:09:41.362679"], ["updated_at", "2019-08-12 11:09:41.362679"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (184.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 2], ["post_id", 4], ["created_at", "2019-08-12 11:09:41.555907"], ["updated_at", "2019-08-12 11:09:41.555907"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (338.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 1], ["post_id", 4], ["created_at", "2019-08-12 11:09:41.902859"], ["updated_at", "2019-08-12 11:09:41.902859"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (196.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 2], ["post_id", 5], ["created_at", "2019-08-12 11:09:42.107376"], ["updated_at", "2019-08-12 11:09:42.107376"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (75.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.9ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 1], ["post_id", 5], ["created_at", "2019-08-12 11:09:42.191389"], ["updated_at", "2019-08-12 11:09:42.191389"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (30.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mTagging Create (0.8ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["tag_id", 4], ["post_id", 5], ["created_at", "2019-08-12 11:09:42.229660"], ["updated_at", "2019-08-12 11:09:42.229660"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (76.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.7ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 1], ["film_id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (1.7ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 1], ["film_id", 1], ["created_at", "2019-08-12 11:09:42.344695"], ["updated_at", "2019-08-12 11:09:42.344695"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (70.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 1], ["film_id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 1], ["film_id", 2], ["created_at", "2019-08-12 11:09:42.422509"], ["updated_at", "2019-08-12 11:09:42.422509"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (78.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.6ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 2], ["film_id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (0.9ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 2], ["film_id", 1], ["created_at", "2019-08-12 11:09:42.511338"], ["updated_at", "2019-08-12 11:09:42.511338"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (26.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 2], ["film_id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 2], ["film_id", 2], ["created_at", "2019-08-12 11:09:42.544919"], ["updated_at", "2019-08-12 11:09:42.544919"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (34.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 3], ["film_id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 3], ["film_id", 1], ["created_at", "2019-08-12 11:09:42.584115"], ["updated_at", "2019-08-12 11:09:42.584115"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (210.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.2ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 3], ["film_id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 3], ["film_id", 2], ["created_at", "2019-08-12 11:09:42.798340"], ["updated_at", "2019-08-12 11:09:42.798340"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (32.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mFilm Load (0.5ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "actors_films" WHERE "actors_films"."actor_id" = $1 AND "actors_films"."film_id" = $2 LIMIT $3[0m  [["actor_id", 3], ["film_id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:74
+  [1m[36mActorsFilm Create (0.8ms)[0m  [1m[32mINSERT INTO "actors_films" ("actor_id", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["actor_id", 3], ["film_id", 3], ["created_at", "2019-08-12 11:09:42.839980"], ["updated_at", "2019-08-12 11:09:42.839980"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (73.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:83
+  [1m[36mActsAsVotable::Vote Create (1.1ms)[0m  [1m[32mINSERT INTO "votes" ("votable_type", "votable_id", "voter_type", "voter_id", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["votable_type", "Film"], ["votable_id", 1], ["voter_type", "User"], ["voter_id", 1], ["vote_flag", true], ["vote_weight", 1], ["created_at", "2019-08-12 11:09:42.945925"], ["updated_at", "2019-08-12 11:09:42.945925"]]
+  ↳ db/seeds.rb:83
+  [1m[35m (27.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:83
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:83
+  [1m[36mActsAsVotable::Vote Create (0.4ms)[0m  [1m[32mINSERT INTO "votes" ("votable_type", "votable_id", "voter_type", "voter_id", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["votable_type", "Film"], ["votable_id", 2], ["voter_type", "User"], ["voter_id", 1], ["vote_flag", true], ["vote_weight", 1], ["created_at", "2019-08-12 11:09:42.976959"], ["updated_at", "2019-08-12 11:09:42.976959"]]
+  ↳ db/seeds.rb:83
+  [1m[35m (82.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:83
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:83
+  [1m[36mActsAsVotable::Vote Create (0.9ms)[0m  [1m[32mINSERT INTO "votes" ("votable_type", "votable_id", "voter_type", "voter_id", "vote_flag", "vote_weight", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["votable_type", "Film"], ["votable_id", 3], ["voter_type", "User"], ["voter_id", 1], ["vote_flag", false], ["vote_weight", 1], ["created_at", "2019-08-12 11:09:43.062117"], ["updated_at", "2019-08-12 11:09:43.062117"]]
+  ↳ db/seeds.rb:83
+  [1m[35m (34.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:83
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mFilm Load (0.5ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mComment Create (1.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "commentable_type", "commentable_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "nice film!!!!!!!!!!!!!!!!!!!!!!!!!!1"], ["commentable_type", "Film"], ["commentable_id", 1], ["user_id", 1], ["created_at", "2019-08-12 11:09:43.177085"], ["updated_at", "2019-08-12 11:09:43.177085"]]
+  ↳ db/seeds.rb:88
+  [1m[35m (57.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("body", "commentable_type", "commentable_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "i think to"], ["commentable_type", "Comment"], ["commentable_id", 1], ["user_id", 1], ["created_at", "2019-08-12 11:09:43.246515"], ["updated_at", "2019-08-12 11:09:43.246515"]]
+  ↳ db/seeds.rb:88
+  [1m[35m (101.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:92
+  [1m[36mAdminUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:92
+  [1m[36mAdminUser Create (0.3ms)[0m  [1m[32mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@gmail.com"], ["encrypted_password", "$2a$11$P2z90VX55hYyvFtbtR4QH.Yad/dax0Ql94u0vCFUnFnmB/ce3AmcC"], ["created_at", "2019-08-12 11:09:43.506375"], ["updated_at", "2019-08-12 11:09:43.506375"]]
+  ↳ db/seeds.rb:92
+  [1m[35m (79.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:92
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mFilm Load (0.5ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mReview Create (1.2ms)[0m  [1m[32mINSERT INTO "reviews" ("user_id", "body", "rating", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["body", "this film is very bad"], ["rating", 3], ["film_id", 1], ["created_at", "2019-08-12 11:09:43.616551"], ["updated_at", "2019-08-12 11:09:43.616551"]]
+  ↳ db/seeds.rb:94
+  [1m[35m (50.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mReview Create (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("user_id", "body", "rating", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["body", "THAT WAS INSAME"], ["rating", 10], ["film_id", 1], ["created_at", "2019-08-12 11:09:43.672633"], ["updated_at", "2019-08-12 11:09:43.672633"]]
+  ↳ db/seeds.rb:94
+  [1m[35m (34.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("user_id", "body", "rating", "film_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["body", "AND what i need to do???"], ["rating", 5], ["film_id", 1], ["created_at", "2019-08-12 11:09:43.710433"], ["updated_at", "2019-08-12 11:09:43.710433"]]
+  ↳ db/seeds.rb:94
+  [1m[35m (25.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
