@@ -12,7 +12,10 @@ pickle-email-*.html
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/tmp
+tmp/
+.rubocop.yml
+.rubocop_todo.yml
+.ruby-version
 !/log/.keep
 !/tmp/.keep
 .DS_Store
