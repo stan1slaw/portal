@@ -17,7 +17,4 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
   database: myapp_production
-  username: kinoportalby
-  password: <%= ENV['KINOPORTALBY_PASSWORD'] %>
