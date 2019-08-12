@@ -27,6 +27,7 @@
           <%= image_tag picturevalid(f.picture[0].url), style: 'height:350px;width:90%'%>
         
         <div class="caption text-center main_photo_information">
+    <% end %>
     <% if current_user && current_user.try(:admin?) %>
 
           <%= link_to t('comments.delete'), f, method: :delete, data: {confirm: "Really?"}, class: "btn btn-danger links" %>
@@ -51,7 +52,6 @@
         </div>
       </div>
     </div>
-    <% end %>
   <% end %>
 <% end %>
 </div>

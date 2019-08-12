@@ -48,6 +48,8 @@ gem "fog-aws"
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick'
 gem 'devise'
+gem 'webpacker'
+gem 'react-rails'
 gem 'dalli'
 gem 'omniauth'
 gem 'omniauth-twitter'
