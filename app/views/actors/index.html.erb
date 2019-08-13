@@ -10,8 +10,6 @@
         <h4 class="card-title"><%= star.name  %></h4>
         <p class="card-text"><%= truncate(star.description, length: 45) %></p>
         <%= link_to "about", actor_path(star), class: "btn btn-info" %>
-        <% if current_user && current_user.try(:admin?) %>
-        <% end %>
       </div>
     </div>
   <% end %>

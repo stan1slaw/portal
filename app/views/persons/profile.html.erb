@@ -5,11 +5,10 @@
   <%= link_to 'English', root_path(locale: :en), class: "btn btn-warning" %>
   <%= link_to 'Русский', root_path(locale: :ru), class: "btn btn-warning" %>
   <% if current_user.try(:admin?) || user_signed_in? %>
-    <%= render partial: "films/information", locals: {current_user:current_user} %>
+    <%= render partial: "films/information" %>
     <hr>
-    <%= render partial: "films/favorites",locals:{current_user:current_user} %>
-
-    <%= render partial: "films/activity", locals:{current_user:current_user} %>
+    <%= render partial: "films/favorites"%>
+    <%= render partial: "films/activity"%>
     <p> <%= link_to 'Update/Edit information', edit_path, class:"btn btn-info" %></p>
     <% if current_user.privat %>
       <p><%= t('profile.onlyforyou') %></p>

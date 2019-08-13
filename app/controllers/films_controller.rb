@@ -1,18 +1,19 @@
 class FilmsController < ApplicationController
-  before_action :find_film,      only: [:show,:edit,:destroy,:update, :upvote, :downvote]
-  before_action :admin_user,     only: [:edit,:delete,:new,:destroy,:update,:add_actor,:remove_actor]
+  before_action :find_film,      only: [:show,:edit,:destroy,:update, :upvote, :downvote, :remove_actor, :add_actor]
+  before_action :admin_user,     only: [:edit,:new,:destroy,:update,:add_actor,:remove_actor]
+  before_action :actor_find, only: [:add_actor,:remove_actor]
   def index
-    search = params[:term].present? ? params[:term] : nil
+    search = params[:term].presence
     @films = if search
                Film.search(search)
              else
-               @films = Film.all.order("cached_votes_up DESC")
+                Film.all
              end
+
     if params.key?(:franchise)
-    @franchise = Franchise.find_by_name(params[:franchise])
-    @films = Film.where(franchise: @franchise)
-    expires_in 1.hour, public: true
-      end
+    @films =  Film.joins(:franchise).where(franchises: {name: params[:franchise]})
+      expires_in 1.hour, public: true
+    end
   end
 
   def autocomplete
@@ -27,9 +28,13 @@ class FilmsController < ApplicationController
 
   # /films/1 GET
   def show
-    @favorite_exists = Favorite.where(film: @film, user: current_user) != []
-    @actors = Actor.all - @film.actors
+    @favorite_exists = Favorite.where(film: @film, user: current_user).presence
+
+    @actors = Actor.where('id NOT IN (?)',Actor.joins(:actors_films).where(actors_films: { film_id: params[:id]}).uniq)
+    #@actors = Actor.find_by_sql("SELECT actors.id, name FROM actors EXCEPT SELECT actors.id, name FROM actors INNER JOIN actors_films ON actors.id = actors_films.actor_id WHERE actors_films.film_id = #{params[:id]}")
+
     if @film
+
     else
       render "films/notFound"
     end
@@ -48,6 +53,7 @@ class FilmsController < ApplicationController
     if @film.save
       redirect_to @film, :notice => "Film was created!"
     else
+      flash.now[:error] =  "You made mistakes in your form!"
       render :new
     end
   end
@@ -70,7 +76,7 @@ class FilmsController < ApplicationController
   end
 
   def upvote
-  @film.upvote_from current_user
+    @film.upvote_from current_user
     redirect_to films_path, :notice => "You made choose!"
   end
 
@@ -80,17 +86,13 @@ class FilmsController < ApplicationController
   end
 
   def add_actor
-    film = Film.find(params[:id])
-    actor = Actor.find(params[:actor_id])
-    film.actors << actor unless film.actors.include? actor
-    redirect_to film_path(film)
+    @film.actors << @actor
+    redirect_to film_path(@film)
   end
 
   def remove_actor
-    film = Film.find(params[:id])
-    actor = Actor.find(params[:actor_id])
-    film.actors.delete(actor)
-    redirect_to film_path(film)
+    @film.actors.delete(@actor)
+    redirect_to film_path(@film)
   end
 
   private
@@ -109,6 +111,9 @@ class FilmsController < ApplicationController
     else
       render 'films/adminError', status: 403
     end
+  end
+  def actor_find
+    @actor = Actor.find(params[:actor_id])
   end
 
 end

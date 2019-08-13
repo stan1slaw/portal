@@ -5,11 +5,12 @@
   <% cache favorite do %>
   <%= link_to favorite.film.name, favorite.film %><br>
 <% end %>
+<% end %>
 <hr>
 <h2>Albums: <%= link_to "Create your album",  new_album_path, class:"btn btn-success" %></h2>
 <% Album.where(user_id: current_user).each do |s| %>
 
   <%= link_to s.name, album_path(s) %><br/>
   <% end %>
-  <% end %>
+
 <hr>

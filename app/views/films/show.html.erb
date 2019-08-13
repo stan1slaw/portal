@@ -30,7 +30,7 @@
   </div>
   <hr>
     <h2>Actors</h2>
-  <% cache "actors" do %>
+
 <div class="boxsize">
       <% @film.actors.each do |actor| %>
 
@@ -45,10 +45,6 @@
         <% end %>
       </div>
   <% end %>
-  <% end %>
-
-
-
   <% if current_user && current_user.try(:admin?) %>
     <% unless @actors.empty?  %>
       <%= form_tag add_actor_path(@film) do %>

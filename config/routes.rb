@@ -68,4 +68,6 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
+  root 'pages#index'
+  match '*path', to: "pages#index", via: :all
 end
