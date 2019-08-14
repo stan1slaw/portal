@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'review/edit'
   get 'review/update'
   get 'review/new'
-  get 'search_films/:q' => 'films#search_films'
+  #get 'search_films/:q' => 'films#search_films'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -57,17 +57,17 @@ Rails.application.routes.draw do
   resources :films do
     resources :reviews
   end
-  resources :films do
-    collection do
-      get :autocomplete
-    end
-  end
+ # resources :films do
+   # collection do
+    #  get :autocomplete
+   # end
+ # end
 
   resources :password_resets
 
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+ # require 'sidekiq/web'
+ # mount Sidekiq::Web => '/sidekiq'
   root 'pages#index'
   match '*path', to: "pages#index", via: :all
 end

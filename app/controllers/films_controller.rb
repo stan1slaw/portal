@@ -3,12 +3,12 @@ class FilmsController < ApplicationController
   before_action :admin_user,     only: [:edit,:new,:destroy,:update,:add_actor,:remove_actor]
   before_action :actor_find, only: [:add_actor,:remove_actor]
   def index
-    search = params[:term].presence
-    @films = if search
-               Film.search(search)
-             else
+   # search = params[:term].presence
+    #@films = if search
+            #   Film.search(search)
+            # else
                 Film.all
-             end
+            # end
 
     if params.key?(:franchise)
     @films =  Film.joins(:franchise).where(franchises: {name: params[:franchise]})
@@ -16,15 +16,15 @@ class FilmsController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: Film.search(params[:query], {
-        fields:['name','time_create'],
-        match: :word_start,
-        limit: 10,
-        load: false,
-        misspellings: {below: 5}
-    }).map(&:name)
-  end
+  #def autocomplete
+  #render json: Film.search(params[:query], {
+  #  fields:['name','time_create'],
+  #  match: :word_start,
+  #  limit: 10,
+  #   load: false,
+  #  misspellings: {below: 5}
+  # }).map(&:name)
+  # end
 
   # /films/1 GET
   def show

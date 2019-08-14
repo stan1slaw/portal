@@ -1,6 +1,6 @@
 require 'elasticsearch/model'
 class Film < ApplicationRecord
-  searchkick  word_middle: [:name, :description, :producer, :time_create]
+  #searchkick  word_middle: [:name, :description, :producer, :time_create]
  # include Elasticsearch::Model
  # include Elasticsearch::Model::Callbacks
   acts_as_votable
@@ -16,15 +16,14 @@ class Film < ApplicationRecord
   has_many :reviews
   belongs_to :franchise
 
-  def search_data
-    {
-        name: name,
-        description: description,
-        producer: producer,
-        time_create: time_create
-
-    }
-  end
+ # def search_data
+   # {
+      #  name: name,
+      #  description: description,
+       # producer: producer,
+        #time_create: time_create
+  #  }
+ # end
 
   def franchise_name
     Rails.cache.fetch([:franchise, franchise_id, :name], expires_in: 1.week) do
