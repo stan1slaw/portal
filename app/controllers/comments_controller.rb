@@ -1,20 +1,23 @@
 class CommentsController < ApplicationController
-
-  before_action :find_commentable, :login_user
-
-  def new
-
-    @comment = Comment.new
-
+  def create
+    film = Film.find params[:comment][:commentable_id]
+    comment = Comment.build_from film, current_user.id, comments_params[:body]
+    comment.parent_id = params[:comment][:parent_id]
+    if comment.save
+      flash[:notice] = 'Your comment has been added.'
+    else
+      flash[:error] = 'There was a problem adding your comment.'
+    end
+    redirect_to film
   end
 
-  def create
-    @comment = @commentable.comments.new(comment_params)
-    @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to films_path, :notice => 'Comment created!'
-    else
-      redirect_to films_path, :notice => 'Comment not created!'
+  def new
+    @parent = Comment.find params[:parent_id]
+    film = @parent.commentable
+    @comment = Comment.build_from(film, current_user.id, '')
+    @comment.parent_id = @parent.id
+    respond_to do |format|
+      format.js {}
     end
   end
 
@@ -23,29 +26,13 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     if @comment.destroy
-      redirect_to films_path, notice: "Comment deleted."
+      redirect_to films_path, notice: "Comment deleted!"
     end
   end
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:body, :user_id)
+  def comments_params
+    params.require(:comment).permit(:body, :commentable_name, :commentable_id, :commentable_type)
   end
-
-
-  def find_commentable
-    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-    @commentable = Film.find_by_id(params[:film_id]) if params[:film_id]
-  end
-
-
-  def login_user
-    if current_user
-    else
-      render 'films/loginError', status: 403
-    end
-  end
-
-
 end

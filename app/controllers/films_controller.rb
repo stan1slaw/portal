@@ -7,7 +7,7 @@ class FilmsController < ApplicationController
     #@films = if search
             #   Film.search(search)
             # else
-    @films =  Film.all.order("cached_votes_up DESC")
+    @films =  Film.all.order("cached_votes_up DESC").includes(:comment_threads).page(params[:page])
     if params.key?(:franchise)
     @films =  Film.joins(:franchise).where(franchises: {name: params[:franchise]})
       expires_in 1.hour, public: true
@@ -31,10 +31,10 @@ class FilmsController < ApplicationController
     #@actors = Actor.find_by_sql("SELECT actors.id, name FROM actors EXCEPT SELECT actors.id, name FROM actors INNER JOIN actors_films ON actors.id = actors_films.actor_id WHERE actors_films.film_id = #{params[:id]}")
 
     if @film
-
     else
       render "films/notFound"
     end
+    @comment = Comment.build_from(@film, current_user.id, '') if user_signed_in?
   end
   # /films/new GET
   def new

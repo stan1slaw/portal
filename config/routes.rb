@@ -49,11 +49,9 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :films do
-    resources :comments, :only => [:create, :destroy]
+    resources :comments, only: [:create, :new, :destroy, :delete]
   end
-  resources :comments do
-    resources :comments, :only => [:create, :destroy]
-  end
+  resources :comments, only: [:create, :new, :destroy, :delete]
   resources :films do
     resources :reviews
   end

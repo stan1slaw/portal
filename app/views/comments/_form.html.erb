@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <%= form_for @comment, html: { class: 'comment' } do |f| %>
+    <fieldset>
+      <%= f.label :body, 'Add a comment' %><br />
+      <%= f.text_area :body, class:"form-control" %>
+    </fieldset>
+    <%= f.hidden_field :commentable_type %>
+    <%= f.hidden_field :commentable_id %>
+    <%= f.hidden_field :parent_id %><br>
+    <%= f.submit class: 'btn btn-warning' %>
+  <% end %>
+<% end %>

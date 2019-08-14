@@ -49,8 +49,12 @@
               <span class="badge"><%= f.get_downvotes.size %></span>
             </button>
           <% end %>
-        </div>
-      </div>
+    <button  class="btn btn-warning">
+      <%= link_to link_to "#{f.comment_threads.length} #{'comment'.pluralize(f.comment_threads.length)}", film_path(f, anchor: 'comments') %>
+    </button>
+    </div>
+
+    </div>
     </div>
   <% end %>
 <% end %>
