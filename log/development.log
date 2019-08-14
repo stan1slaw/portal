@@ -45049,3 +45049,518 @@ Processing by FranchisesController#show as HTML
 Completed 200 OK in 150ms (Views: 132.5ms | ActiveRecord: 8.7ms)
 
 
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:14:40 +0300
+  [1m[35m (90.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/stanislaw/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (29.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+Dalli::Server#connect 127.0.0.1:11211
+Cache write: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (3.4ms) [cache miss]
+  [1m[36mFavorite Load (69.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+  [1m[36mFilm Load (104.5ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_favorites.html.erb:6
+Cache write: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_favorites.html.erb:6
+Cache write: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (32.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (419.7ms) [cache miss]
+  [1m[36mComment Load (13.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:2
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:10
+  Rendered films/_activity.html.erb (167.1ms)
+  Rendered persons/profile.html.erb within layouts/application (854.3ms)
+  Rendered films/_login.html.erb (6.7ms)
+Completed 200 OK in 12543ms (Views: 12087.1ms | ActiveRecord: 442.8ms)
+
+
+Started GET "/actors?locale=en" for ::1 at 2019-08-14 10:15:37 +0300
+Processing by ActorsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering actors/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/actors/index.html.erb:1
+  [1m[36mActor Load (62.3ms)[0m  [1m[34mSELECT "actors".* FROM "actors"[0m
+  ↳ app/views/actors/index.html.erb:6
+  Rendered actors/index.html.erb within layouts/application (115.9ms)
+  Rendered films/_login.html.erb (2.2ms)
+Completed 200 OK in 373ms (Views: 251.8ms | ActiveRecord: 75.1ms)
+
+
+Started GET "/actors/1?locale=en" for ::1 at 2019-08-14 10:15:56 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"1"}
+  [1m[36mActor Load (0.2ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/actors_controller.rb:58
+  [1m[36mFilm Load (118.8ms)[0m  [1m[34mSELECT "films".* FROM "films" INNER JOIN "actors_films" ON "actors_films"."film_id" = "films"."id" WHERE "actors_films"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/controllers/actors_controller.rb:24
+  Rendering actors/show.html.erb within layouts/application
+Cache read: views/actors/show:66875ae9d44ae0c28c5b9810b1c273cd/actors/1-20190813081725855729
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/actors/show.html.erb:4
+Cache write: views/actors/show:66875ae9d44ae0c28c5b9810b1c273cd/actors/1-20190813081725855729
+  [1m[36mFilm Load (0.6ms)[0m  [1m[34mSELECT "films".* FROM "films" INNER JOIN "actors_films" ON "films"."id" = "actors_films"."film_id" WHERE "actors_films"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/views/actors/show.html.erb:17
+  [1m[36mFilm Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "films" WHERE (id NOT IN (1,4,2)) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/actors/show.html.erb:26
+  [1m[36mFilm Load (1.0ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE (id NOT IN (1,4,2))[0m
+  ↳ app/views/actors/show.html.erb:28
+  Rendered actors/show.html.erb within layouts/application (105.7ms)
+  Rendered films/_login.html.erb (1.9ms)
+Completed 200 OK in 570ms (Views: 235.5ms | ActiveRecord: 144.2ms)
+
+
+Started DELETE "/actors/1/films/4?locale=en" for ::1 at 2019-08-14 10:15:59 +0300
+Processing by ActorsController#remove_film as HTML
+  Parameters: {"authenticity_token"=>"Fvi/jbAs96ufI71CgaVsG4+pf1tR4GWQ8t2Rhz1jUnN/IuRAHQ72u1pLE1a2uf8n4wGwJH37Fbs8bWzR02yAug==", "locale"=>"en", "id"=>"1", "film_id"=>"4"}
+  [1m[36mActor Load (0.2ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/actors_controller.rb:58
+Completed 400 Bad Request in 11ms (ActiveRecord: 4.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: film):
+  
+app/controllers/actors_controller.rb:69:in `film_params'
+app/controllers/actors_controller.rb:46:in `remove_film'
+Started GET "/actors/1?locale=en" for ::1 at 2019-08-14 10:16:15 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"1"}
+  [1m[36mActor Load (0.2ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/actors_controller.rb:58
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT "films".* FROM "films" INNER JOIN "actors_films" ON "actors_films"."film_id" = "films"."id" WHERE "actors_films"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/controllers/actors_controller.rb:24
+  Rendering actors/show.html.erb within layouts/application
+Cache read: views/actors/show:66875ae9d44ae0c28c5b9810b1c273cd/actors/1-20190813081725855729
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films" INNER JOIN "actors_films" ON "films"."id" = "actors_films"."film_id" WHERE "actors_films"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/views/actors/show.html.erb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/actors/show.html.erb:20
+  [1m[36mFilm Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "films" WHERE (id NOT IN (1,4,2)) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/actors/show.html.erb:26
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE (id NOT IN (1,4,2))[0m
+  ↳ app/views/actors/show.html.erb:28
+  Rendered actors/show.html.erb within layouts/application (28.1ms)
+  Rendered films/_login.html.erb (2.0ms)
+Completed 200 OK in 205ms (Views: 174.8ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/actors/1?locale=en" for ::1 at 2019-08-14 10:16:16 +0300
+Processing by ActorsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"1"}
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/actors_controller.rb:58
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT "films".* FROM "films" INNER JOIN "actors_films" ON "actors_films"."film_id" = "films"."id" WHERE "actors_films"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/controllers/actors_controller.rb:24
+  Rendering actors/show.html.erb within layouts/application
+Cache read: views/actors/show:66875ae9d44ae0c28c5b9810b1c273cd/actors/1-20190813081725855729
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films" INNER JOIN "actors_films" ON "films"."id" = "actors_films"."film_id" WHERE "actors_films"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/views/actors/show.html.erb:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/actors/show.html.erb:20
+  [1m[36mFilm Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "films" WHERE (id NOT IN (1,4,2)) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/actors/show.html.erb:26
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT "films".* FROM "films" WHERE (id NOT IN (1,4,2))[0m
+  ↳ app/views/actors/show.html.erb:28
+  Rendered actors/show.html.erb within layouts/application (26.9ms)
+  Rendered films/_login.html.erb (1.7ms)
+Completed 200 OK in 181ms (Views: 149.5ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:16:18 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.2ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (19.1ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:2
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:10
+  Rendered films/_activity.html.erb (26.3ms)
+  Rendered persons/profile.html.erb within layouts/application (66.1ms)
+  Rendered films/_login.html.erb (1.7ms)
+Completed 200 OK in 200ms (Views: 184.0ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:27:53 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.8ms) [cache hit]
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (22.7ms) [cache hit]
+  Rendered films/_activity.html.erb (1311.2ms)
+  Rendered persons/profile.html.erb within layouts/application (1373.1ms)
+Completed 500 Internal Server Error in 1382ms (ActiveRecord: 13.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<#<Class:0x00007fe5489cbf50>:0x00007fe5489ca0d8>
+Did you mean?  comment_url):
+    1: <h2>Last activity:</h2>
+    2: <%= activity(current_user,comment)  %>
+    3: 
+    4: <% current_user.favorites.last(3).each do |favorite| %>
+    5:   [<%= favorite.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> favorited this film: <%= link_to favorite.film.name, favorite.film %>
+  
+app/views/films/_activity.html.erb:2:in `_app_views_films__activity_html_erb___377081216959828285_70311372165240'
+app/views/persons/profile.html.erb:11:in `_app_views_persons_profile_html_erb___2857659278500522418_70311371219800'
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:28:49 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.9ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (23.2ms) [cache hit]
+  Rendered films/_activity.html.erb (9.1ms)
+  Rendered persons/profile.html.erb within layouts/application (60.1ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 8.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<User:0x00007fe5487e5420>
+Did you mean?  comments
+               comments=):
+    1: <h2>Last activity:</h2>
+    2: <%= activity(current_user.comment)  %>
+    3: 
+    4: <% current_user.favorites.last(3).each do |favorite| %>
+    5:   [<%= favorite.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> favorited this film: <%= link_to favorite.film.name, favorite.film %>
+  
+app/views/films/_activity.html.erb:2:in `_app_views_films__activity_html_erb___377081216959828285_70311369791680'
+app/views/persons/profile.html.erb:11:in `_app_views_persons_profile_html_erb___2857659278500522418_70311762733500'
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:28:50 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.4ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (17.5ms) [cache hit]
+  Rendered films/_activity.html.erb (8.1ms)
+  Rendered persons/profile.html.erb within layouts/application (46.5ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<User:0x00007fe577617ba0>
+Did you mean?  comments
+               comments=):
+    1: <h2>Last activity:</h2>
+    2: <%= activity(current_user.comment)  %>
+    3: 
+    4: <% current_user.favorites.last(3).each do |favorite| %>
+    5:   [<%= favorite.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> favorited this film: <%= link_to favorite.film.name, favorite.film %>
+  
+app/views/films/_activity.html.erb:2:in `_app_views_films__activity_html_erb___377081216959828285_70311765325160'
+app/views/persons/profile.html.erb:11:in `_app_views_persons_profile_html_erb___2857659278500522418_70311761421720'
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:28:54 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.7ms) [cache hit]
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (20.1ms) [cache hit]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:5
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:5
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:8
+  Rendered films/_activity.html.erb (28.8ms)
+  Rendered persons/profile.html.erb within layouts/application (83.8ms)
+  Rendered films/_login.html.erb (2.0ms)
+Completed 200 OK in 592ms (Views: 571.2ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:29:19 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.2ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (16.9ms) [cache hit]
+  Rendered films/_activity.html.erb (1164.6ms)
+  Rendered persons/profile.html.erb within layouts/application (1203.8ms)
+Completed 500 Internal Server Error in 1207ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comments' for #<#<Class:0x00007fe54941f240>:0x00007fe54941d648>
+Did you mean?  comments_url):
+    1: <h2>Last activity:</h2>
+    2: <%= activity(comments)  %>
+    3: 
+    4: <% current_user.favorites.last(3).each do |favorite| %>
+    5:   [<%= favorite.created_at.strftime("%m/%d/%Y, %I:%M%p") %>] <%= current_user.username || current_user.email %> favorited this film: <%= link_to favorite.film.name, favorite.film %>
+  
+app/views/films/_activity.html.erb:2:in `_app_views_films__activity_html_erb___377081216959828285_70311377832300'
+app/views/persons/profile.html.erb:11:in `_app_views_persons_profile_html_erb___2857659278500522418_70311376649420'
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:29:34 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.5ms) [cache hit]
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (20.1ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:5
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:5
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:8
+  Rendered films/_activity.html.erb (30.3ms)
+  Rendered persons/profile.html.erb within layouts/application (76.4ms)
+  Rendered films/_login.html.erb (2.5ms)
+Completed 200 OK in 249ms (Views: 230.6ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:30:09 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.5ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (18.1ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.4ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:10
+  Rendered films/_activity.html.erb (26.4ms)
+  Rendered persons/profile.html.erb within layouts/application (66.0ms)
+  Rendered films/_login.html.erb (3.6ms)
+Completed 200 OK in 232ms (Views: 215.1ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:30:10 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.2ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (18.4ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.1ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:10
+  Rendered films/_activity.html.erb (63.8ms)
+  Rendered persons/profile.html.erb within layouts/application (103.5ms)
+  Rendered films/_login.html.erb (2.1ms)
+Completed 200 OK in 222ms (Views: 207.5ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:30:11 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.3ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (18.4ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.3ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:10
+  Rendered films/_activity.html.erb (31.5ms)
+  Rendered persons/profile.html.erb within layouts/application (71.8ms)
+  Rendered films/_login.html.erb (1.8ms)
+Completed 200 OK in 188ms (Views: 173.9ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:30:15 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.4ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.1ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (17.5ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/views/films/_activity.html.erb:10
+  Rendered films/_activity.html.erb (26.5ms)
+  Rendered persons/profile.html.erb within layouts/application (65.5ms)
+  Rendered films/_login.html.erb (1.9ms)
+Completed 200 OK in 215ms (Views: 199.2ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:31:04 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.2ms) [cache hit]
+  [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (18.2ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  Rendered films/_activity.html.erb (27.0ms)
+  Rendered persons/profile.html.erb within layouts/application (68.8ms)
+  Rendered films/_login.html.erb (1.7ms)
+Completed 200 OK in 218ms (Views: 201.8ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/persons/profile?locale=en" for ::1 at 2019-08-14 10:33:01 +0300
+Processing by PersonsController#profile as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering persons/profile.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/persons/profile.html.erb:1
+Cache read: views/films/_information:336ce287ccef614afa1b2361f3e04aa2/users/1-20190813081722258447
+  Rendered films/_information.html.erb (1.8ms) [cache hit]
+  [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:4
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/9-20190813124915582346
+Cache read: views/films/_favorites:9778ee84405249850061666ea3408a43/favorites/10-20190813124941901299
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/films/_favorites.html.erb:11
+  Rendered films/_favorites.html.erb (22.2ms) [cache hit]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mFilm Load (0.2ms)[0m  [1m[34mSELECT  "films".* FROM "films" WHERE "films"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/films/_activity.html.erb:7
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."user_id" = $1 ORDER BY "albums"."id" DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  ↳ app/helpers/activity_helper.rb:3
+  Rendered films/_activity.html.erb (36.5ms)
+  Rendered persons/profile.html.erb within layouts/application (85.4ms)
+  Rendered films/_login.html.erb (2.0ms)
+Completed 200 OK in 243ms (Views: 225.6ms | ActiveRecord: 15.7ms)
+
+
