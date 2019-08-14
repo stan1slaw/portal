@@ -7,7 +7,7 @@ class FilmsController < ApplicationController
     #@films = if search
             #   Film.search(search)
             # else
-    @films = Film.all
+    @films =  Film.all.order("cached_votes_up DESC")
     if params.key?(:franchise)
     @films =  Film.joins(:franchise).where(franchises: {name: params[:franchise]})
       expires_in 1.hour, public: true
