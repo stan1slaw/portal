@@ -7,9 +7,7 @@ class FilmsController < ApplicationController
     #@films = if search
             #   Film.search(search)
             # else
-                Film.all
-            # end
-
+    @films = Film.all
     if params.key?(:franchise)
     @films =  Film.joins(:franchise).where(franchises: {name: params[:franchise]})
       expires_in 1.hour, public: true

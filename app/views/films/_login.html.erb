@@ -56,12 +56,7 @@
     <div class="form-inline my-2 my-lg-0">
       <%= form_tag(films_path, method: :get, class: "form-inline", role: 'search') do %>
         <div class="input-group">
-          <%= text_field_tag :term,
-                             #params[:term],
-                            id: 'films_search',
-                           #  autocomplete: :off,
-                            placeholder: 'Search',
-                             class: 'form-control' %>
+          <%= text_field_tag :term %>
           <div class="input-group-btn search-panel">
             <%= link_to 'Clear', films_path, class: "btn btn-warning" %>
             <%= submit_tag 'Search', name: nil, class: "btn btn-success" %>
