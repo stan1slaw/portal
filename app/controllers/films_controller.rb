@@ -27,7 +27,6 @@ class FilmsController < ApplicationController
   # /films/1 GET
   def show
     @favorite_exists = Favorite.where(film: @film, user: current_user).presence
-
     @actors = Actor.where('id NOT IN (?)',Actor.joins(:actors_films).where(actors_films: { film_id: params[:id]}).uniq)
     #@actors = Actor.find_by_sql("SELECT actors.id, name FROM actors EXCEPT SELECT actors.id, name FROM actors INNER JOIN actors_films ON actors.id = actors_films.actor_id WHERE actors_films.film_id = #{params[:id]}")
 
