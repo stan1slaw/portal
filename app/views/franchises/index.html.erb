@@ -11,5 +11,6 @@
 </div>
 
 
-
+<% if current_user && current_user.try(:admin?) %>
 <%= link_to 'New Franchise', new_franchise_path, class:"btn btn-success" %>
+<% end %>

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comment_params)
-    current_user.comments.build
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to films_path, :notice => 'Comment created!'
     else

@@ -1,4 +1,5 @@
 class FranchisesController < ApplicationController
+  before_action :admin_user,     only: [:edit,:new,:destroy,:update,:create]
   def index
     @franchises = Franchise.all
 end
@@ -29,6 +30,14 @@ end
   end
 
   private
+
+  def admin_user
+    if current_user.try(:admin?)
+
+    else
+      render 'films/adminError', status: 403
+    end
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def category_params
